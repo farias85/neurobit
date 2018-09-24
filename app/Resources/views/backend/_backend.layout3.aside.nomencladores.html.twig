@@ -1,0 +1,76 @@
+{% block backend_layout_aside_nomencladores %}
+<li class="treeview {% block li_nomenclador_tree_active %}{% endblock %}">
+    <a href="#"><i class="fa fa-forward"></i> <span>{{ 'nomencladores' | trans({},'menu-i18n') }}</span>
+        <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+    </a>
+    <ul class="treeview-menu">
+
+        <li class="treeview {% block li_cuidador_estado_alta_tree_active %}{% endblock %}">
+            <a href="#"><i class="fa fa-arrow-right"></i> <span>{{ 'cuidador.estado.alta' | trans({},'menu-i18n') }}</span>
+                <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{% block li_cuidador_estado_alta_all_active %}{% endblock %}">
+                    <a href="{{ path('cuidador_estado_alta_index') }}">{{ 'todos.losestados' | trans({},'menu-i18n') }}</a>
+                </li>
+                <li class="{% block li_cuidador_estado_alta_new_active %}{% endblock %}">
+                    <a href="{{ path('cuidador_estado_alta_new') }}">{{ 'nuevo.estado' | trans({},'menu-i18n') }}</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="treeview {% block li_entrevista_estado_tree_active %}{% endblock %}">
+            <a href="#"><i class="fa fa-arrow-right"></i> <span>{{ 'entrevista.estado' | trans({},'menu-i18n') }}</span>
+                <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{% block li_entrevista_estado_all_active %}{% endblock %}">
+                    <a href="{{ path('entrevista_estado_index') }}">{{ 'todos.losestados' | trans({},'menu-i18n') }}</a>
+                </li>
+                <li class="{% block li_entrevista_estado_new_active %}{% endblock %}">
+                    <a href="{{ path('entrevista_estado_new') }}">{{ 'nuevo.estado' | trans({},'menu-i18n') }}</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="treeview {% block li_incidencia_estado_tree_active %}{% endblock %}">
+            <a href="#"><i class="fa fa-arrow-right"></i> <span>{{ 'incidencia.estado' | trans({},'menu-i18n') }}</span>
+                <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{% block li_incidencia_estado_all_active %}{% endblock %}">
+                    <a href="{{ path('incidencia_estado_index') }}">{{ 'todos.losestados' | trans({},'menu-i18n') }}</a>
+                </li>
+                <li class="{% block li_incidencia_estado_new_active %}{% endblock %}">
+                    <a href="{{ path('incidencia_estado_new') }}">{{ 'nuevo.estado' | trans({},'menu-i18n') }}</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="treeview {% block li_servicio_estado_tree_active %}{% endblock %}">
+            <a href="#"><i class="fa fa-arrow-right"></i> <span>{{ 'servicio.estado' | trans({},'menu-i18n') }}</span>
+                <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{% block li_servicio_estado_all_active %}{% endblock %}">
+                    <a href="{{ path('servicio_estado_index') }}">{{ 'todos.losestados' | trans({},'menu-i18n') }}</a>
+                </li>
+                <li class="{% block li_servicio_estado_new_active %}{% endblock %}">
+                    <a href="{{ path('servicio_estado_new') }}">{{ 'nuevo.estado' | trans({},'menu-i18n') }}</a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</li>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% block backend_layout_aside_extranet %}
+    <li class="treeview {% block li_extranet_tree_active %}{% endblock %}">
+        <a href="#"><i class="fa fa-file-text-o"></i> <span>{{ 'informes' | trans }}</span>
+            <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% block li_informes_all_active %}{% endblock %}">
+                <a href="{{ path('backend_informe_index') }}"><i class="fa fa-arrow-right"></i>{{ 'descargar' | trans }}</a>
+            </li>
+
+            <li class="{% block li_estudio_all_active %}{% endblock %}">
+                <a href="{{ path('estudio_index') }}"><i class="fa fa-arrow-right"></i>{{ 'estudiosss' | trans }}</a>
+            </li>
+
+            <li class="{% block li_experiencia_profesional_all_active %}{% endblock %}">
+                <a href="{{ path('experiencia_profesional_index') }}"><i class="fa fa-arrow-right"></i>{{ 'experiencia.profesional' | trans }}</a>
+            </li>
+        </ul>
+    </li>
+{% endblock %}

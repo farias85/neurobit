@@ -1,0 +1,48 @@
+{% extends ":backend:backend.layout2.header.html.twig" %}
+
+{% block backend_aside %}
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar Menu -->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">{{ 'menu' | trans({},'menu-i18n') }}</li>
+                <!-- Optionally, you can add icons to the links -->
+                <li class="{% block dashboard_active %}{% endblock %}">
+                    <a href="{{ path('backend_homepage') }}">
+                        <i class="fa fa-link"></i> <span>{{ 'inicio' | trans }}</span>
+                    </a>
+                </li>
+
+                {% use 'backend/_backend.layout3.aside.usuarios.html.twig' %}
+                {{ block('backend_layout_aside_usuarios') }}
+
+                {% use 'backend/_backend.layout3.aside.parametros.html.twig' %}
+                {{ block('backend_layout_aside_parametros') }}
+
+                {% use 'backend/_backend.layout3.aside.entrevistas.html.twig' %}
+                {{ block('backend_layout_aside_entrevistas') }}
+
+                {% use 'backend/_backend.layout3.aside.mensajes.html.twig' %}
+                {{ block('backend_layout_aside_mensajes') }}
+
+                {% if app.user.bnf %}
+                    {% use 'backend/_backend.layout3.aside.nomencladores.html.twig' %}
+                    {{ block('backend_layout_aside_nomencladores') }}
+
+                    {% use 'backend/_backend.layout3.aside.configuracion.html.twig' %}
+                    {{ block('backend_layout_aside_configuracion') }}
+
+                    {% use 'backend/_backend.layout3.aside.extranet.html.twig' %}
+                    {{ block('backend_layout_aside_extranet') }}
+                {% endif %}
+
+            </ul>
+            <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+{% endblock %}
+
+
