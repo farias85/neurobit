@@ -1,46 +1,10 @@
-empresa:
-    resource: "@EmpresaBundle/Resources/config/routing.yml"
-    prefix:   /business
-    schemes:  [https]
-
-socket:
-    resource: "@SocketBundle/Resources/config/routing.yml"
-    prefix:   /web-socket
-
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /user
-
-api:
-    resource: "@ApiBundle/Resources/config/routing.yml"
-    prefix:   /api
-    
-extranet:
-    resource: "@ExtranetBundle/Resources/config/routing.yml"
-    prefix:   /extranet
-    schemes:  [https]
-
-frontend:
-    resource: "@FrontendBundle/Resources/config/routing.yml"
+backend:
+    resource: "@BackendBundle/Resources/config/routing.yml"
     prefix:   /
-    schemes:  [https]
 
 media:
     resource: "@MediaBundle/Resources/config/routing.yml"
     prefix:   /media
-
-configuration:
-    resource: "@ConfigurationBundle/Resources/config/routing.yml"
-    prefix:   /configuration
-
-mensaje:
-    resource: "@MensajeBundle/Resources/config/routing.yml"
-    prefix:   /message
-
-backend:
-    resource: "@BackendBundle/Resources/config/routing.yml"
-    prefix:   /backend
-    schemes:  [https]
 
 common:
     resource: "@CommonBundle/Resources/config/routing.yml"

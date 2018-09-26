@@ -24,6 +24,7 @@ class AppKernel extends Kernel {
             new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
+            new NB\BackendBundle\BackendBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
