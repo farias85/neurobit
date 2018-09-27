@@ -1,0 +1,26 @@
+services:
+#    media.example:
+#        class: NB\MediaBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    nb.media.file.uploader:
+        class: NB\MediaBundle\Service\FileUploader
+
+    nb.media.media.upload.listener:
+        class: NB\MediaBundle\EventListener\MediaUploadListener
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+        arguments: ['@nb.media.file.uploader']
+
+    nb.media.manager:
+        parent: nb.manager
+        class: NB\MediaBundle\Manager\MediaManager
+
+    nb.tipo.media.manager:
+        parent: nb.manager
+        class: NB\MediaBundle\Manager\TipoMediaManager
+
+    nb.documento.manager:
+        parent: nb.manager
+        class: NB\MediaBundle\Manager\DocumentoManager
