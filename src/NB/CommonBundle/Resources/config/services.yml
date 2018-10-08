@@ -1,0 +1,33 @@
+services:
+#    common.example:
+#        class: NB\CommonBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    nb.util:
+        class: NB\CommonBundle\Util\Util
+
+    nb.entitysetter:
+        class: NB\CommonBundle\Service\EntitySetter
+        arguments: ['@service_container']
+
+    nb.common.media.setter.listener:
+        class: NB\CommonBundle\EventListener\MediaSetterListener
+        arguments: ['@service_container']
+        tags:
+            - { name: doctrine.event_listener, event: postLoad }
+
+    nb.manager:
+        class: NB\CommonBundle\Manager\Manager
+        arguments: ['@doctrine.orm.entity_manager', '@service_container', "@twig"]
+
+    nb.nomenclature.manager:
+        parent: nb.manager
+        class: NB\CommonBundle\Manager\NomenclatureManager
+
+    nb.base.api.manager:
+        parent: nb.manager
+        class: NB\CommonBundle\Manager\BaseApiManager
+        
+    nb.mail.manager:
+        class:     NB\CommonBundle\Manager\MailManager
+        arguments: ["@mailer", "@twig",'@service_container']
