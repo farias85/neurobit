@@ -11,6 +11,7 @@ namespace NB\CommonBundle\Util;
 
 class Entity {
 
-    const HOLA = "CommonBundle:Hola";
+    const ADMINISTRADOR = "CommonBundle:Administrador";
+    const USUARIO = "CommonBundle:Usuario";
 
 }

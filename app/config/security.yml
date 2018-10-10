@@ -4,30 +4,23 @@ security:
     # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        SF\UserBundle\Entity\Administrador: { algorithm: bcrypt, cost: 4 }
-        SF\UserBundle\Entity\Cuidador: { algorithm: bcrypt, cost: 4 }
-        SF\UserBundle\Entity\Demandante: { algorithm: bcrypt, cost: 4 }
-        SF\EmpresaBundle\Entity\Empresa: { algorithm: bcrypt, cost: 4 }
+        NB\CommonBundle\Entity\Administrador: { algorithm: bcrypt, cost: 4 }
+        NB\CommonBundle\Entity\Usuario: { algorithm: bcrypt, cost: 4 }
 
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:
-        ROLE_USER:        [ROLE_DEMANDANTE, ROLE_CUIDADOR, ROLE_EMPRESA]
-        ROLE_ADMIN:       [ROLE_ADMIN]   
-        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_USER:        [ROLE_TRABAJADOR, ROLE_SECRETARIO]
+        ROLE_ADMIN:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         administradores:
-            entity: { class: SF\UserBundle\Entity\Administrador, property: email }
-        cuidadores:
-            entity: { class: SF\UserBundle\Entity\Cuidador, property: email }
-        demandantes:
-            entity: { class: SF\UserBundle\Entity\Demandante, property: email }
-        empresas:
-            entity: { class: SF\EmpresaBundle\Entity\Empresa, property: email }
+            entity: { class: NB\CommonBundle\Entity\Administrador, property: email }
+        usuarios:
+            entity: { class: NB\UserBundle\Entity\Usuario, property: email }
         chain_provider:
             chain:
-                providers: [cuidadores, demandantes, empresas]
+                providers: [usuarios]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -59,7 +52,7 @@ security:
             switch_user: { role: ROLE_ADMIN }
         frontend:
             pattern:        ^/*
-            provider:       chain_provider
+            provider:       usuarios
             anonymous:      true
             form_login:
                 login_path: frontend_login
@@ -84,7 +77,8 @@ security:
 
 #***************************************USERS*******************************************************************
 
-        - { path: ^/front/*, roles: [ROLE_DEMANDANTE] }
+        - { path: ^/front/*, roles: [ROLE_TRABAJADOR] }
+        - { path: ^/sec/*, roles: [ROLE_SECRETARIO] }
 
 #***************************************BACKEND*******************************************************************
 
