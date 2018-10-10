@@ -10,7 +10,7 @@ security:
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:
         ROLE_USER:        [ROLE_TRABAJADOR, ROLE_SECRETARIO]
-        ROLE_ADMIN:       [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:       [ROLE_ADMIN]
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
@@ -18,9 +18,9 @@ security:
             entity: { class: NB\CommonBundle\Entity\Administrador, property: email }
         usuarios:
             entity: { class: NB\UserBundle\Entity\Usuario, property: email }
-        chain_provider:
-            chain:
-                providers: [usuarios]
+#        chain_provider:
+#            chain:
+#                providers: [usuarios]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -42,7 +42,7 @@ security:
                 login_path: backend_login
                 check_path: backend_login
                 default_target_path: backend_homepage
-                always_use_default_target_path: false
+                always_use_default_target_path: true
             logout:
                 path:       /backend/logout
                 target:     frontend_homepage
@@ -57,7 +57,7 @@ security:
             form_login:
                 login_path: frontend_login
                 check_path: frontend_login
-                default_target_path: frontend_login_redirect
+                default_target_path: frontend_homepage
                 always_use_default_target_path: true
             logout:
                 path:       /logout
@@ -77,7 +77,7 @@ security:
 
 #***************************************USERS*******************************************************************
 
-        - { path: ^/front/*, roles: [ROLE_TRABAJADOR] }
+        - { path: ^/privado/*, roles: [ROLE_TRABAJADOR] }
         - { path: ^/sec/*, roles: [ROLE_SECRETARIO] }
 
 #***************************************BACKEND*******************************************************************

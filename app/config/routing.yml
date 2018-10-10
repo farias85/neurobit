@@ -20,3 +20,7 @@ fos_js_routing:
 __backend:
     path:     /admin/
     defaults: { _controller: FrameworkBundle:Redirect:redirect, route: backend_homepage }
+
+___backend:
+    path:     /backend/
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: backend_homepage }

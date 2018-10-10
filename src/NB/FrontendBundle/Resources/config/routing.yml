@@ -1,3 +1,31 @@
-frontend_homepage:
+_frontend:
     path:     /
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: frontend_homepage }
+
+frontend_homepage:
+    path:     /{_locale}/
     defaults: { _controller: FrontendBundle:Default:index }
+    requirements:
+        _locale: '%locales_app%'
+
+frontend_login:
+    path:     /{_locale}/login
+    defaults: { _controller: FrontendBundle:Security:login }
+    requirements:
+        _locale: '%locales_app%'
+
+frontend_logout:
+    path:     /logout
+
+#Examples
+frontend_privado:
+    path:     /privado/{_locale}/
+    defaults: { _controller: FrontendBundle:Default:index }
+    requirements:
+        _locale: '%locales_app%'
+
+frontend_sec:
+    path:     /sec/{_locale}/
+    defaults: { _controller: FrontendBundle:Default:index }
+    requirements:
+        _locale: '%locales_app%'
