@@ -25,6 +25,7 @@ class AppKernel extends Kernel {
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
             new NB\BackendBundle\BackendBundle(),
+            new NB\FrontendBundle\FrontendBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

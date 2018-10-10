@@ -82,29 +82,16 @@ security:
     access_control:
 #        - { path: ^/user/(%locales_app%)/security/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
-#todo ***************************************EXTRANET*******************************************************************
+#***************************************USERS*******************************************************************
 
-        - { path: ^/extranet/(%locales_app%)/public/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/extranet/(%locales_app%)/ext/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/front/*, roles: [ROLE_DEMANDANTE] }
 
-        - { path: ^/extranet/(%locales_app%)/app/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/extranet/*, roles: [ROLE_CUIDADOR] }
-
-#todo ***************************************EMPRESA*******************************************************************
-
-        - { path: ^/business/(%locales_app%)/public/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/business/*, roles: [ROLE_EMPRESA] }
-
-#todo ***************************************FAMILIA*******************************************************************
-
-        - { path: ^/fam/*, roles: [ROLE_DEMANDANTE] }
-
-#todo ***************************************BACKEND*******************************************************************
+#***************************************BACKEND*******************************************************************
 
         - { path: ^/backend/(%locales_app%)/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/backend/*, roles: [ROLE_ADMIN] }
 
-#todo ***************************************OTHERS********************************************************************
+#***************************************OTHERS********************************************************************
 
         - { path: ^/*, roles: [IS_AUTHENTICATED_FULLY, IS_AUTHENTICATED_ANONYMOUSLY] }
 
