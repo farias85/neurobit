@@ -12,3 +12,9 @@ backend_login:
 
 backend_logout:
     path:     /logout
+
+bdispatch:
+    path:     /dispatch/{template}
+    defaults: { _controller: BackendBundle:Default:dispatch }
+    options:
+        expose: true

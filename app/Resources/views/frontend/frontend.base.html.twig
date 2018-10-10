@@ -43,20 +43,22 @@
 
         <!-- Custom fonts for this template -->
         <link href="{{ asset('bundles/common/gh/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/common/gh/vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('bundles/common/gh/vendor/simple-line-icons/css/simple-line-icons.css') }}"
+              rel="stylesheet" type="text/css">
         {#<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">#}
 
         <!-- Custom styles for this template -->
         <link href="{{ asset('bundles/common/gh/css/landing-page.min.css') }}" rel="stylesheet">
     {% endblock %}
 
+    {% include ':common:_block-upper-scripts.html.twig' %}
+
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 
-{#<body ng-controller="BaseController" ng-init="init()" ng-cloak>#}
-{#<growl-notifications></growl-notifications>#}
+<body ng-controller="BaseController" ng-init="init()" ng-cloak>
+<growl-notifications></growl-notifications>
 
-<body>
 {% block body %}
 
     {% block nav %} {% endblock %}
@@ -76,6 +78,8 @@
     <script src="{{ asset('bundles/common/gh/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 {% endblock %}
+
+{% include ':common:_block-footer-scripts.html.twig' %}
 
 </body>
 </html>

@@ -17,6 +17,12 @@ frontend_login:
 frontend_logout:
     path:     /logout
 
+fdispatch:
+    path:     /dispatch/{template}
+    defaults: { _controller: FrontendBundle:Default:dispatch }
+    options:
+        expose: true
+
 #TESTING
 frontend_privado:
     path:     /privado/{_locale}/

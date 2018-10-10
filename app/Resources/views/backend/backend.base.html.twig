@@ -35,7 +35,8 @@
         <link href="{{ asset('bundles/backend/sb-admin/vendor/morrisjs/morris.css') }}" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="{{ asset('bundles/backend/sb-admin/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('bundles/backend/sb-admin/vendor/font-awesome/css/font-awesome.min.css') }}"
+              rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,6 +45,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
     {% endblock %}
+
+    {% include ':common:_block-upper-scripts.html.twig' %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
@@ -73,6 +76,8 @@
     <script src="{{ asset('bundles/backend/sb-admin/dist/js/sb-admin-2.js') }}"></script>
 
 {% endblock %}
+
+{% include ':common:_block-footer-scripts.html.twig' %}
 
 </body>
 </html>

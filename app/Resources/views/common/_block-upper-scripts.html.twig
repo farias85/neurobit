@@ -1,0 +1,60 @@
+<script>
+  nbConfig = {};
+  nbConfig.nbAsset = '{{ asset('bundles/common/gh/vendor/bootstrap/css/bootstrap.min.css') }}';
+  nbConfig.nbHost = '{{ app.request.schemeAndHttpHost }}';
+  nbConfig.nbBaseUrl = '{{ app.request.baseUrl }}';
+  nbConfig.nbMaxFileSize = '{{ nbMaxFileSize }}';
+  nbConfig.nbMaxVideoFileSize = '{{ nbMaxVideoFileSize }}';
+</script>
+
+<!-- FOS JS Routing -->
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+{#Main Angular Files#}
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular-animate.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular-cookies.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular-resource.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular-route.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular-1.6.9/angular-sanitize.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular/dependencies/angular-translate.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular/ng-file-upload/ng-file-upload-shim.js') }}"></script>
+<script src="{{ asset('bundles/common/js/angular/ng-file-upload/ng-file-upload.js') }}"></script>
+<script type="text/javascript"
+        src="{{ asset('bundles/common/js/angular/growl-notifications/dist/angular-growl-notifications.js') }}"></script>
+
+<script src="{{ asset('bundles/common/js/nbApp/nbApp.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/language/en.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/language/es.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/routing/routes.js') }}"></script>
+
+{#Controllers#}
+<script src="{{ asset('bundles/common/js/nbApp/controller/BaseController.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/controller/ThingController.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/controller/TodoController.js') }}"></script>
+
+{#Services#}
+<script src="{{ asset('bundles/common/js/nbApp/service/ApiService.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/service/ToolService.js') }}"></script>
+
+{#Factories#}
+<script src="{{ asset('bundles/common/js/nbApp/factory/ScopeFactory.js') }}"></script>
+
+{#Filters#}
+<script src="{{ asset('bundles/common/js/nbApp/filter/MonthFilter.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/filter/UperCaseFilter.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/filter/LimitWordsFilter.js') }}"></script>
+
+{#Directives#}
+<script src="{{ asset('bundles/common/js/nbApp/directive/MessagesDirective.js') }}"></script>
+<script src="{{ asset('bundles/common/js/nbApp/directive/LoadingDirective.js') }}"></script>
+
+{% set locale = app.request.get('_locale') %}
+{% if locale is defined and locale is not empty %}
+    <script type="text/javascript"
+            src="{{ asset('bundles/common/js/angular-1.6.9/i18n/ngLocale/angular-locale-'~locale~'.js') }}"></script>
+{% else %}
+    <script type="text/javascript"
+            src="{{ asset('bundles/common/js/angular-1.6.9/i18n/ngLocale/angular-locale-es.js') }}"></script>
+{% endif %}

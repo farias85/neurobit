@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('FrontendBundle:Default:index.html.twig');
     }
+
+    public function dispatchAction($template) {
+        return $this->render('FrontendBundle:Template:' . $template . '.html.twig');
+    }
 }

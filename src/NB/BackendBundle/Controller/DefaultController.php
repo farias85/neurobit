@@ -9,4 +9,8 @@ class DefaultController extends Controller {
     public function indexAction() {
         return $this->render('BackendBundle:Default:index.html.twig');
     }
+
+    public function dispatchAction($template) {
+        return $this->render('BackendBundle:Template:' . $template . '.html.twig');
+    }
 }
