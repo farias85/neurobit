@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="SF" lang="es">
+<html ng-app="NB" lang="es">
 {#<html lang="es">#}
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{% block title %} Seniors First! {% endblock %}</title>
+    <title>{% block title %} Neurobit! {% endblock %}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <meta name="autor" content="Equipo desarrollo BusinessInFact">
-    <meta name="copyrigth" content="Copyright © Seniors First.">
+    <meta name="autor" content="CENPIS/GPS">
+    <meta name="copyrigth" content="Copyright © CENPIS/GPS">
 
     {% set locale = app.request.get('_locale') %}
     {% if locale is defined and locale is not empty %}
@@ -23,10 +23,6 @@
         </script>
     {% endif %}
 
-    {#<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>#}
-    {#<meta http-equiv="Pragma" content="no-cache"/>#}
-    {#<meta http-equiv="Expires" content="0"/>#}
-
     {% block seo %}
         <meta name="description" content="{{ 'meta.description'|trans }}">
         <meta name="keywords" content="{{ 'meta.keywords'|trans }}">
@@ -34,44 +30,33 @@
         <!-- Open Graph protocol -->
         <meta property="og:locale" content="es">
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Seniors First">
-        <meta property="og:description" content="{{ 'meta.description'|trans }}">
-        <meta property="og:keywords" content="{{ 'meta.keywords'|trans }}">
+        <meta property="og:title" content="Neurobit">
+        <meta property="og:description" content="description">
+        <meta property="og:keywords" content="keywords">
         <meta property="og:url" content="{{ app.request.schemeAndHttpHost }}{{ app.request.baseUrl }}">
-        <meta property="og:site_name" content="Seniors First">
+        <meta property="og:site_name" content="Neurobit">
     {% endblock %}
 
     {% block stylesheets %}
-        <!-- Hojas de estilo -->
-        <link rel="stylesheet" href="{{ asset('bundles/frontend/css/external/bootstrap.min.css') }}">
-        {#<link rel="stylesheet" href="{{ asset('bundles/frontend/css/external/bootstrap-alpha-6.min.css') }}">#}
-        <link rel="stylesheet" href="{{ asset('bundles/frontend/css/external/font-awesome.min.css') }}">
-        {#todo LO DESCONECTÉ, NO CARGABA ESTO SE TARDABA LA PAGINA EN CARGAR POR MI MALA CONEXION DE RED#}
-        {#<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"#}
-        {#rel="stylesheet" type="text/css">#}
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('bundles/common/gh/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+        <!-- Custom fonts for this template -->
+        <link href="{{ asset('bundles/common/gh/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('bundles/common/gh/vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+        {#<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">#}
+
         <!-- Custom styles for this template -->
-        <link href="{{ asset('bundles/frontend/css/home.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/frontend/css/external/rSlider.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('bundles/frontend/css/external/slider.css') }}" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('bundles/frontend/css/external/star-rating.css') }}">
-        <!-- Fin hojas de estilo -->
-
-        {% include ':common:_block-stylesheets.html.twig' %}
-
-        {#Required Frontend Controllers#}
-        <script src="{{ asset('bundles/common/js/sfApp/controller/NavController.js') }}"></script>
-        <script src="{{ asset('bundles/extranet/js/sfApp/controller/ExtranetNavController.js') }}"></script>
-        <script src="{{ asset('bundles/common/js/sfApp/controller/CookiesController.js') }}"></script>
-        <script src="{{ asset('bundles/common/js/sfApp/controller/BaseController.js') }}"></script>
-        <script src="{{ asset('bundles/common/js/sfApp/controller/NewsletterController.js') }}"></script>
-
+        <link href="{{ asset('bundles/common/gh/css/landing-page.min.css') }}" rel="stylesheet">
     {% endblock %}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/frontend/img/senior-first-logo.png') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 
-<body ng-controller="BaseController" ng-init="init()" ng-cloak>
-<growl-notifications></growl-notifications>
+{#<body ng-controller="BaseController" ng-init="init()" ng-cloak>#}
+{#<growl-notifications></growl-notifications>#}
+
+<body>
 {% block body %}
 
     {% block nav %} {% endblock %}
@@ -84,36 +69,13 @@
 
 {% endblock %}
 
-{% include 'FrontendBundle:Include:_modal-info.html.twig' %}
-
 {% block javascripts %}
-    <script type="text/javascript"
-            src="{{ asset('bundles/frontend/plugins/jquery-3.2.1/http_code.jquery.com_jquery-3.2.1.js') }}"></script>
 
-    <script>window.jQuery || document.write('<script src="{{ asset('bundles/frontend/js/external/jquery.min.js') }}"><\/script>');</script>
-
-    <script type="text/javascript"
-            src="{{ asset('bundles/frontend/plugins/popper/http_cdnjs.cloudflare.com_ajax_libs_popper.js_1.12.9_umd_popper.min.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ asset('bundles/frontend/plugins/bootstrap/http_maxcdn.bootstrapcdn.com_bootstrap_4.0.0_js_bootstrap.min.js') }}"></script>
-    <script type="text/javascript"
-            src="{{ asset('bundles/frontend/plugins/tether/http_cdnjs.cloudflare.com_ajax_libs_tether_1.4.0_js_tether.js') }}"></script>
-
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/external/rSlider.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/external/bootstrap-slider.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/external/form-wizard.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/vanillajs/main.js') }}"></script>
-
-    <script src="{{ asset('bundles/frontend/js/external/star-rating.js') }}"></script>
-
-    {% include ':common:_block-javascripts.html.twig' %}
-
-    <script>
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-      });
-    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ asset('bundles/common/gh/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/common/gh/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 {% endblock %}
+
 </body>
 </html>
