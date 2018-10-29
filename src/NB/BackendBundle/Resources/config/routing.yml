@@ -18,3 +18,8 @@ bdispatch:
     defaults: { _controller: BackendBundle:Default:dispatch }
     options:
         expose: true
+
+common_equipo:
+    resource: "@CommonBundle/Resources/config/routing/equipo.yml"
+    prefix:   /equipo
+
