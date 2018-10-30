@@ -1,0 +1,24 @@
+especialidad_index:
+    path:     /
+    defaults: { _controller: "CommonBundle:Especialidad:index" }
+    methods:  GET
+
+especialidad_show:
+    path:     /{id}/show
+    defaults: { _controller: "CommonBundle:Especialidad:show" }
+    methods:  GET
+
+especialidad_new:
+    path:     /new
+    defaults: { _controller: "CommonBundle:Especialidad:new" }
+    methods:  [GET, POST]
+
+especialidad_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CommonBundle:Especialidad:edit" }
+    methods:  [GET, POST]
+
+especialidad_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CommonBundle:Especialidad:delete" }
+    methods:  DELETE

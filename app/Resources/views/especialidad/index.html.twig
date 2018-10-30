@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lista de Equipos</h1>
+    <h1>Lista de Especialidades</h1>
 
     <table>
         <thead>
@@ -13,18 +13,18 @@
         </tr>
         </thead>
         <tbody>
-        {% for equipo in equipos %}
+        {% for especialidad in especialidads %}
             <tr>
-                <td><a href="{{ path('equipo_show', { 'id': equipo.id }) }}">{{ equipo.id }}</a></td>
-                <td>{{ equipo.nombre }}</td>
-                <td>{{ equipo.descripcion }}</td>
+                <td><a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">{{ especialidad.id }}</a></td>
+                <td>{{ especialidad.nombre }}</td>
+                <td>{{ especialidad.descripcion }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('equipo_show', { 'id': equipo.id }) }}">Mostrar</a>
+                            <a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">Mostrar</a>
                         </li>
                         <li>
-                            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Editar</a>
+                            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('equipo_new') }}">Crear nuevo equipo</a>
+            <a href="{{ path('especialidad_new') }}">Crear nueva especialidad</a>
         </li>
     </ul>
 {% endblock %}

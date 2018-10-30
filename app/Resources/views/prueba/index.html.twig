@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Lista de Equipos</h1>
+    <h1>Lista de Pruebas</h1>
 
     <table>
         <thead>
@@ -13,18 +13,18 @@
         </tr>
         </thead>
         <tbody>
-        {% for equipo in equipos %}
+        {% for prueba in pruebas %}
             <tr>
-                <td><a href="{{ path('equipo_show', { 'id': equipo.id }) }}">{{ equipo.id }}</a></td>
-                <td>{{ equipo.nombre }}</td>
-                <td>{{ equipo.descripcion }}</td>
+                <td><a href="{{ path('prueba_show', { 'id': prueba.id }) }}">{{ prueba.id }}</a></td>
+                <td>{{ prueba.nombre }}</td>
+                <td>{{ prueba.descripcion }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('equipo_show', { 'id': equipo.id }) }}">Mostrar</a>
+                            <a href="{{ path('prueba_show', { 'id': prueba.id }) }}">Mostrar</a>
                         </li>
                         <li>
-                            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Editar</a>
+                            <a href="{{ path('prueba_edit', { 'id': prueba.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -35,7 +35,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('equipo_new') }}">Crear nuevo equipo</a>
+            <a href="{{ path('prueba_new') }}">Crear nueva prueba</a>
         </li>
     </ul>
 {% endblock %}

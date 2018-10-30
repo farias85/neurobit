@@ -1,0 +1,24 @@
+prueba_index:
+    path:     /
+    defaults: { _controller: "CommonBundle:Prueba:index" }
+    methods:  GET
+
+prueba_show:
+    path:     /{id}/show
+    defaults: { _controller: "CommonBundle:Prueba:show" }
+    methods:  GET
+
+prueba_new:
+    path:     /new
+    defaults: { _controller: "CommonBundle:Prueba:new" }
+    methods:  [GET, POST]
+
+prueba_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CommonBundle:Prueba:edit" }
+    methods:  [GET, POST]
+
+prueba_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CommonBundle:Prueba:delete" }
+    methods:  DELETE

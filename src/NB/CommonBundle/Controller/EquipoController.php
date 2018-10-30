@@ -42,7 +42,7 @@ class EquipoController extends Controller
             $em->persist($equipo);
             $em->flush();
 
-            return $this->redirectToRoute('equipo_index', array('id' => $equipo->getId()));
+            return $this->redirectToRoute('equipo_index'/*, array('id' => $equipo->getId())*/);
         }
 
         return $this->render('equipo/new.html.twig', array(
@@ -78,7 +78,7 @@ class EquipoController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('equipo_index', array('id' => $equipo->getId()));
+            return $this->redirectToRoute('equipo_index'/*, array('id' => $equipo->getId())*/);
         }
 
         return $this->render('equipo/edit.html.twig', array(

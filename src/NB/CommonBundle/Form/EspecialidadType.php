@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EquipoType extends AbstractType
+class EspecialidadType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -23,7 +23,7 @@ class EquipoType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NB\CommonBundle\Entity\Equipo'
+            'data_class' => 'NB\CommonBundle\Entity\Especialidad'
         ));
     }
 
@@ -32,7 +32,7 @@ class EquipoType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'nb_commonbundle_equipo';
+        return 'nb_commonbundle_especialidad';
     }
 
 

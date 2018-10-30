@@ -1,0 +1,24 @@
+procedencia_index:
+    path:     /
+    defaults: { _controller: "CommonBundle:Procedencia:index" }
+    methods:  GET
+
+procedencia_show:
+    path:     /{id}/show
+    defaults: { _controller: "CommonBundle:Procedencia:show" }
+    methods:  GET
+
+procedencia_new:
+    path:     /new
+    defaults: { _controller: "CommonBundle:Procedencia:new" }
+    methods:  [GET, POST]
+
+procedencia_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CommonBundle:Procedencia:edit" }
+    methods:  [GET, POST]
+
+procedencia_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CommonBundle:Procedencia:delete" }
+    methods:  DELETE

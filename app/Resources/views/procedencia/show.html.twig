@@ -1,31 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipo</h1>
+    <h1>Procedencia</h1>
 
     <table>
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ equipo.id }}</td>
+            <td>{{ procedencium.id }}</td>
         </tr>
         <tr>
             <th>Nombre</th>
-            <td>{{ equipo.nombre }}</td>
+            <td>{{ procedencium.nombre }}</td>
         </tr>
         <tr>
             <th>Descripcion</th>
-            <td>{{ equipo.descripcion }}</td>
+            <td>{{ procedencium.descripcion }}</td>
+        </tr>
+        <tr>
+            <th>Fueraprovincia</th>
+            <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('equipo_index') }}">Volver a la lista</a>
+            <a href="{{ path('procedencia_index') }}">Volver a la lista</a>
         </li>
         <li>
-            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Editar</a>
+            <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

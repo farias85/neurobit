@@ -23,3 +23,15 @@ common_equipo:
     resource: "@CommonBundle/Resources/config/routing/equipo.yml"
     prefix:   /equipo
 
+common_prueba:
+    resource: "@CommonBundle/Resources/config/routing/prueba.yml"
+    prefix:   /prueba
+
+common_especialidad:
+    resource: "@CommonBundle/Resources/config/routing/especialidad.yml"
+    prefix:   /especialidad
+
+common_procedencia:
+    resource: "@CommonBundle/Resources/config/routing/procedencia.yml"
+    prefix:   /procedencia
+

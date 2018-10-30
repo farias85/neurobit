@@ -1,31 +1,31 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Equipo</h1>
+    <h1>Prueba</h1>
 
     <table>
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ equipo.id }}</td>
+            <td>{{ prueba.id }}</td>
         </tr>
         <tr>
             <th>Nombre</th>
-            <td>{{ equipo.nombre }}</td>
+            <td>{{ prueba.nombre }}</td>
         </tr>
         <tr>
-            <th>Descripcion</th>
-            <td>{{ equipo.descripcion }}</td>
+            <th>Descripción</th>
+            <td>{{ prueba.descripcion }}</td>
         </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('equipo_index') }}">Volver a la lista</a>
+            <a href="{{ path('prueba_index') }}">Volver a la lista</a>
         </li>
         <li>
-            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Editar</a>
+            <a href="{{ path('prueba_edit', { 'id': prueba.id }) }}">Editar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lista de Procedencias</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>¿Fuera de la provincia?</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for procedencium in procedencias %}
+            <tr>
+                <td><a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}">{{ procedencium.id }}</a></td>
+                <td>{{ procedencium.nombre }}</td>
+                <td>{{ procedencium.descripcion }}</td>
+                <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}">Mostrar</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('procedencia_new') }}">Create a new procedencium</a>
+        </li>
+    </ul>
+{% endblock %}
