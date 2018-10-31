@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Lista de Especialidades</h1>
-
-    <table>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Lista de Especialidades{% endblock %}
+{% block nombre %}Especialidad{% endblock %}
+{% block subtitulo %}Lista de Especialidades{% endblock %}
+{% block content %}
+    <table class="table table-responsive">
         <thead>
         <tr>
             <th>Id</th>
@@ -19,14 +19,10 @@
                 <td>{{ especialidad.nombre }}</td>
                 <td>{{ especialidad.descripcion }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}">Mostrar</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('especialidad_show', { 'id': especialidad.id }) }}"
+                       class="btn btn-info">Mostrar</a>
+                    <a href="{{ path('especialidad_edit', { 'id': especialidad.id }) }}"
+                       class="btn btn-warning">Editar</a>
                 </td>
             </tr>
         {% endfor %}

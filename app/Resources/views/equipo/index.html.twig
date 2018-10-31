@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Lista de Equipos</h1>
-
-    <table>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Lista de Equipos{% endblock %}
+{% block nombre %}Equipo{% endblock %}
+{% block subtitulo %}Lista de Equipos{% endblock %}
+{% block content %}
+    <table class="table table-responsive">
         <thead>
         <tr>
             <th>Id</th>
@@ -19,14 +19,8 @@
                 <td>{{ equipo.nombre }}</td>
                 <td>{{ equipo.descripcion }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('equipo_show', { 'id': equipo.id }) }}">Mostrar</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('equipo_show', { 'id': equipo.id }) }}" class="btn btn-info">Mostrar</a>
+                    <a href="{{ path('equipo_edit', { 'id': equipo.id }) }}" class="btn btn-warning">Editar</a>
                 </td>
             </tr>
         {% endfor %}

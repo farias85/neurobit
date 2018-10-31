@@ -1,16 +1,15 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Nueva Procedencia</h1>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Nueva Procedencia{% endblock %}
+{% block nombre %}Procedencia{% endblock %}
+{% block subtitulo %}Nueva Procedencia{% endblock %}
+{% block content %}
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
+    {{ form_widget(form) }}
+    <br><input type="submit" value="Crear" class="btn btn-info"/>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('procedencia_index') }}">Volver a la lista</a>
-        </li>
-    </ul>
+    <br><br>
+    <a href="{{ path('procedencia_index') }}">Volver a la lista</a>
+
 {% endblock %}
