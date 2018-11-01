@@ -21,22 +21,23 @@ bdispatch:
 
 backend_equipo:
     resource: "@BackendBundle/Resources/config/routing/equipo.yml"
-    prefix:   /equipo
-
-backend_equipo_n:
-    resource: "@BackendBundle/Resources/config/routing/equipo-n.yml"
-    prefix:   /{_locale}/equipo-n/
+    prefix:   /{_locale}/equipo/
     defaults: { _locale: '%locale%' }
     requirements:
         _locale: '%locales_app%'
 
 backend_prueba:
     resource: "@BackendBundle/Resources/config/routing/prueba.yml"
-    prefix:   /prueba
+    prefix:   /{_locale}/prueba/
+    defaults: { _locale: '%locale%' }
+    requirements:
+        _locale: '%locales_app%'
 
 backend_especialidad:
     resource: "@BackendBundle/Resources/config/routing/especialidad.yml"
-    prefix:   /especialidad
+    prefix:   /{_locale}/especialidad
+    requirements:
+            _locale: '%locales_app%'
 
 backend_procedencia:
     resource: "@BackendBundle/Resources/config/routing/procedencia.yml"

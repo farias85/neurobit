@@ -298,6 +298,7 @@ abstract class NomenclatureController extends CommonController implements Entity
             'form' => $form->createView(),
             'name' => $this->getNameNew(),
             'router' => $this->getRouter(),
+            'title' => $this->getTitle(),
         ));
     }
 
@@ -340,6 +341,7 @@ abstract class NomenclatureController extends CommonController implements Entity
             'display' => $this->display($filtersOnShow, $i18nOnShow),
             'router' => $this->getRouter(),
             'name' => $this->getNameShow(),
+            'title' => $this->getTitle(),
         ));
     }
 
@@ -413,6 +415,7 @@ abstract class NomenclatureController extends CommonController implements Entity
             'router' => $this->getRouter(),
             'edit_form' => $editForm->createView(),
             'name' => $this->getNameEdit(),
+            'title' => $this->getTitle(),
         ));
     }
 

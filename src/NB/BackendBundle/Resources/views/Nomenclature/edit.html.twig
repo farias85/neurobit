@@ -1,5 +1,7 @@
 {% extends 'BackendBundle:Layout:backend.html.twig' %}
-
+{% block title %}{{ name }} {% endblock %}
+{% block nombre %} {{ title }} {% endblock %}
+{% block subtitulo %}{{ name }} {% endblock %}
 {% block wrapper %}
 
     {% block wrapper_header %} {% endblock %}
@@ -21,6 +23,7 @@
         <div class="col-lg-6">
             <form action="{{ path(router['edit'], { 'id': entity.id }) }}" method="post" enctype="multipart/form-data">
                 {{ form_rest(edit_form) }}
+                <br>
                 <input class="btn btn-success mt-10" type="submit" value="{{ 'crud.edit' | trans }}"/>
             </form>
         </div>
