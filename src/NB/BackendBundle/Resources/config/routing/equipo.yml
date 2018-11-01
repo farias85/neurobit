@@ -1,34 +1,34 @@
 equipo_index:
     path:     /{_locale}
-    defaults: { _controller: "CommonBundle:Equipo:index" }
+    defaults: { _controller: "BackendBundle:Equipo:index" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 equipo_show:
     path:     /{_locale}/{id}/show
-    defaults: { _controller: "CommonBundle:Equipo:show" }
+    defaults: { _controller: "BackendBundle:Equipo:show" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 equipo_new:
     path:     /{_locale}/new
-    defaults: { _controller: "CommonBundle:Equipo:new" }
+    defaults: { _controller: "BackendBundle:Equipo:new" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 equipo_edit:
     path:     /{_locale}/{id}/edit
-    defaults: { _controller: "CommonBundle:Equipo:edit" }
+    defaults: { _controller: "BackendBundle:Equipo:edit" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 equipo_delete:
     path:     /{_locale}/{id}/delete
-    defaults: { _controller: "CommonBundle:Equipo:delete" }
+    defaults: { _controller: "BackendBundle:Equipo:delete" }
     methods:  DELETE
     requirements:
             _locale: '%locales_app%'
