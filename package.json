@@ -1,0 +1,29 @@
+{
+  "name": "neurobit",
+  "version": "1.0.0",
+  "description": "neurobit\r ===========",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/encore dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farias85/neurobit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/farias85/neurobit/issues"
+  },
+  "homepage": "https://github.com/farias85/neurobit#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
+  }
+}

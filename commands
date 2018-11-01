@@ -136,3 +136,17 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         type: be_simple_i18n
+
+
+https://github.com/nioperas06/symfony-webpack
+https://medium.com/@nioperas06/integrate-webpack-in-your-symfony-application-with-webpack-encore-ed338298a031
+
+$ git clone git@github.com:nioperas06/symfony-webpack.git
+$ cd symfony-webpack
+$ npm install
+$ composer update
+$ php bin/console server:start
+
+WebPack Encore
+yarn add @symfony/webpack-encore --dev
+yarn add sass-loader node-sass --dev

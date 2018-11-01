@@ -63,4 +63,7 @@
 /.idea
 /.scannerwork
 
+# NodeJs
+/node_modules
+
 /docs/audio-entrevista/Arquímedes.mp3
