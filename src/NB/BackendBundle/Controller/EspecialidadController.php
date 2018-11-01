@@ -22,7 +22,7 @@ class EspecialidadController extends Controller
 
         $especialidads = $em->getRepository('CommonBundle:Especialidad')->findAll();
 
-        return $this->render('@Backend/especialidad/index.html.twig', array(
+        return $this->render('@Backend/Especialidad/index.html.twig', array(
             'especialidads' => $especialidads,
         ));
     }
@@ -45,7 +45,7 @@ class EspecialidadController extends Controller
             return $this->redirectToRoute('especialidad_index'/*, array('id' => $especialidad->getId())*/);
         }
 
-        return $this->render('@Backend/especialidad/new.html.twig', array(
+        return $this->render('@Backend/Especialidad/new.html.twig', array(
             'especialidad' => $especialidad,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class EspecialidadController extends Controller
     {
         $deleteForm = $this->createDeleteForm($especialidad);
 
-        return $this->render('@Backend/especialidad/show.html.twig', array(
+        return $this->render('@Backend/Especialidad/show.html.twig', array(
             'especialidad' => $especialidad,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class EspecialidadController extends Controller
             return $this->redirectToRoute('especialidad_index'/*, array('id' => $especialidad->getId())*/);
         }
 
-        return $this->render('@Backend/especialidad/edit.html.twig', array(
+        return $this->render('@Backend/Especialidad/edit.html.twig', array(
             'especialidad' => $especialidad,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
