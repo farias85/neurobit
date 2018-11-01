@@ -1,21 +1,22 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Editar Procedencia</h1>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Editar Procedencia{% endblock %}
+{% block nombre %}Equipo{% endblock %}
+{% block subtitulo %}Editar Procedencia{% endblock %}
+{% block content %}
 
     {{ form_start(edit_form) }}
     {{ form_widget(edit_form) }}
-    <input type="submit" value="Editar"/>
+    <br>
+    <input type="submit" value="Editar" class="btn btn-info"/>
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('procedencia_index') }}">Volver a la lista</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Eliminar">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+
+    <br>
+    <a href="{{ path('procedencia_index') }}" class="btn btn-success">Volver a la lista</a>
+
+    <br><br>
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Eliminar" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
 {% endblock %}
