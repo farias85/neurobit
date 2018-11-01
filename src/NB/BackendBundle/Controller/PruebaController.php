@@ -1,6 +1,6 @@
 <?php
 
-namespace NB\CommonBundle\Controller;
+namespace NB\BackendBundle\Controller;
 
 use NB\CommonBundle\Entity\Prueba;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +22,7 @@ class PruebaController extends Controller
 
         $pruebas = $em->getRepository('CommonBundle:Prueba')->findAll();
 
-        return $this->render('prueba/index.html.twig', array(
+        return $this->render('@Backend/prueba/index.html.twig', array(
             'pruebas' => $pruebas,
         ));
     }
@@ -45,7 +45,7 @@ class PruebaController extends Controller
             return $this->redirectToRoute('prueba_index'/*, array('id' => $prueba->getId())*/);
         }
 
-        return $this->render('prueba/new.html.twig', array(
+        return $this->render('@Backend/prueba/new.html.twig', array(
             'prueba' => $prueba,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class PruebaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($prueba);
 
-        return $this->render('prueba/show.html.twig', array(
+        return $this->render('@Backend/prueba/show.html.twig', array(
             'prueba' => $prueba,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class PruebaController extends Controller
             return $this->redirectToRoute('prueba_index'/*, array('id' => $prueba->getId())*/);
         }
 
-        return $this->render('prueba/edit.html.twig', array(
+        return $this->render('@Backend/prueba/edit.html.twig', array(
             'prueba' => $prueba,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
