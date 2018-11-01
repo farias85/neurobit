@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Lista de Pruebas</h1>
-
-    <table>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Lista de Pruebas{% endblock %}
+{% block nombre %}Prueba{% endblock %}
+{% block subtitulo %}Lista de Pruebas{% endblock %}
+{% block content %}
+    <table class="table table-responsive">
         <thead>
         <tr>
             <th>Id</th>
@@ -19,23 +19,14 @@
                 <td>{{ prueba.nombre }}</td>
                 <td>{{ prueba.descripcion }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('prueba_show', { 'id': prueba.id }) }}">Mostrar</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('prueba_edit', { 'id': prueba.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('prueba_show', { 'id': prueba.id }) }}" class="btn btn-info">Mostrar</a>
+                    <a href="{{ path('prueba_edit', { 'id': prueba.id }) }}" class="btn btn-warning">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('prueba_new') }}">Crear nueva prueba</a>
-        </li>
-    </ul>
+    <br><a href="{{ path('prueba_new') }}" class="btn btn-success">Crear nueva prueba</a>
+
 {% endblock %}

@@ -216,7 +216,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -239,24 +239,30 @@
                     </div>
                     <!-- /input-group -->
                 </li>
-                <li>
+               {# <li>
                     <a href="#"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                </li>
+                </li>#}
                 <li>
-                    <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-table fa-fw"></i> Tablas<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Flot Charts</a>
+                            <a href="{{ url("equipo_index") }}">Equipo</a>
                         </li>
                         <li>
-                            <a href="#">Morris.js Charts</a>
+                            <a href="{{ url("prueba_index") }}">Prueba</a>
+                        </li>
+                        <li>
+                            <a href="{{ url("procedencia_index") }}">Procedencia</a>
+                        </li>
+                        <li>
+                            <a href="{{ url("especialidad_index") }}">Especialidad</a>
                         </li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
-                <li>
+                {#<li>
                     <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
-                </li>
+                </li>#}
                 <li>
                     <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
                 </li>

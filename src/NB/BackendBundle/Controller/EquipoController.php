@@ -1,6 +1,6 @@
 <?php
 
-namespace NB\CommonBundle\Controller;
+namespace NB\BackendBundle\Controller;
 
 use NB\CommonBundle\Entity\Equipo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +22,7 @@ class EquipoController extends Controller
 
         $equipos = $em->getRepository('CommonBundle:Equipo')->findAll();
 
-        return $this->render('equipo/index.html.twig', array(
+        return $this->render('@Backend/equipo/index.html.twig', array(
             'equipos' => $equipos,
         ));
     }
@@ -45,7 +45,7 @@ class EquipoController extends Controller
             return $this->redirectToRoute('equipo_index'/*, array('id' => $equipo->getId())*/);
         }
 
-        return $this->render('equipo/new.html.twig', array(
+        return $this->render('@Backend/equipo/new.html.twig', array(
             'equipo' => $equipo,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class EquipoController extends Controller
     {
         $deleteForm = $this->createDeleteForm($equipo);
 
-        return $this->render('equipo/show.html.twig', array(
+        return $this->render('@Backend/equipo/show.html.twig', array(
             'equipo' => $equipo,
             'delete_form' => $deleteForm->createView(),
         ));

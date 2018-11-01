@@ -1,10 +1,10 @@
 {% extends ':backend:backend.layout.html.html.twig' %}
-{% block title %}Editar Prueba{% endblock %}
+{% block title %}Editar Equipo{% endblock %}
 {% block nombre %}Equipo{% endblock %}
-{% block subtitulo %}Editar Prueba{% endblock %}
+{% block subtitulo %}Editar Equipo{% endblock %}
 {% block content %}
 
-    <form action="{{ path('prueba_edit',{'id':prueba.id}) }}" method="post">
+    <form action="{{ path('equipo_edit',{'id':equipo.id}) }}" method="post">
         {{ form_widget(edit_form) }}
         <br>
         <input type="submit" value="Editar" class="btn btn-info"/>
@@ -12,7 +12,7 @@
 
 
     <br>
-    <a href="{{ path('prueba_index') }}" class="btn btn-success">Volver a la lista</a>
+    <a href="{{ path('equipo_index') }}" class="btn btn-success">Volver a la lista</a>
 
     <br><br>
     {{ form_start(delete_form) }}

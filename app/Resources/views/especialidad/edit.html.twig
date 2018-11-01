@@ -1,21 +1,23 @@
-{% extends 'base.html.twig' %}
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Editar Especialidad{% endblock %}
+{% block nombre %}Equipo{% endblock %}
+{% block subtitulo %}Editar Especialidad{% endblock %}
+{% block content %}
 
-{% block body %}
-    <h1>Editar Especialidad</h1>
+    <form action="{{ path('especialidad_edit',{'id':especialidad.id}) }}" method="post">
+        {{ form_widget(edit_form) }}
+        <br>
+        <input type="submit" value="Editar" class="btn btn-info"/>
+    </form>
 
-    {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
-    <input type="submit" value="Editar"/>
-    {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('especialidad_index') }}">Volver a la lista</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Eliminar">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <br>
+    <a href="{{ path('especialidad_index') }}" class="btn btn-success">Volver a la lista</a>
+
+    <br><br>
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Eliminar" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
 {% endblock %}
+

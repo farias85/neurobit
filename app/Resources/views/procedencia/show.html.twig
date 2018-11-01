@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Procedencia</h1>
-
-    <table>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Datos de Procedencia {% endblock %}
+{% block nombre %}Equipo{% endblock %}
+{% block subtitulo %}Datos de Procedencia {% endblock %}
+{% block content %}
+    <table class="table table-responsive">
         <tbody>
         <tr>
             <th>Id</th>
@@ -14,27 +14,25 @@
             <td>{{ procedencium.nombre }}</td>
         </tr>
         <tr>
-            <th>Descripcion</th>
+            <th>Descripción</th>
             <td>{{ procedencium.descripcion }}</td>
         </tr>
         <tr>
-            <th>Fueraprovincia</th>
+            <th>&iquest;Fuera de la provincia?</th>
             <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
         </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('procedencia_index') }}">Volver a la lista</a>
-        </li>
-        <li>
-            <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}">Editar</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Eliminar">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <br>
+    <a href="{{ path('procedencia_index') }}" class="btn btn-success">Volver a la lista</a>
+
+    <br><br>
+    <a href="{{ path('procedencia_edit', { 'id': equipo.id }) }}" class="btn btn-info">Editar</a>
+
+    <br><br>
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Eliminar" class="btn btn-danger">
+    {{ form_end(delete_form) }}
+
 {% endblock %}

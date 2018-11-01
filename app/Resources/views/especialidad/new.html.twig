@@ -1,16 +1,15 @@
-{% extends 'base.html.twig' %}
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Nueva Especialidad{% endblock %}
+{% block nombre %}Especialidad{% endblock %}
+{% block subtitulo %}Nueva Especialidad{% endblock %}
+{% block content %}
 
-{% block body %}
-    <h1>Nueva Especialidad</h1>
+    <form action="{{ path('especialidad_new') }}" method="post">
+        {{ form_widget(form) }}
+        <br><input type="submit" value="Crear" class="btn btn-info"/>
+    </form>
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Crear"/>
-    {{ form_end(form) }}
+    <br>
+    <a href="{{ path('especialidad_index') }}" class="btn btn-warning">Volver a la lista</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('especialidad_index') }}">Volver a la lista</a>
-        </li>
-    </ul>
 {% endblock %}

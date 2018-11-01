@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-    <h1>Lista de Procedencias</h1>
-
-    <table>
+{% extends ':backend:backend.layout.html.html.twig' %}
+{% block title %}Lista de Procedencias{% endblock %}
+{% block nombre %}Procedencia{% endblock %}
+{% block subtitulo %}Lista de Procedencias{% endblock %}
+{% block content %}
+    <table class="table table-responsive">
         <thead>
         <tr>
             <th>Id</th>
@@ -21,23 +21,13 @@
                 <td>{{ procedencium.descripcion }}</td>
                 <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}">Mostrar</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}" class="btn btn-info">Mostrar</a>
+                    <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}"
+                       class="btn btn-warning">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('procedencia_new') }}">Create a new procedencium</a>
-        </li>
-    </ul>
+    <br><a href="{{ path('procedencia_new') }}" class="btn btn-success">Crear nueva procedencia</a>
 {% endblock %}

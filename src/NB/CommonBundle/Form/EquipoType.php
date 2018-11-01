@@ -13,8 +13,8 @@ class EquipoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')
-            ->add('descripcion', null, array('label' => "Descripción"));
+        $builder->add('nombre', null, array('attr' => array('class' => "form-control", 'style' => "width: 400px")))
+            ->add('descripcion', null, array('label' => "Descripción", 'attr' => array('class' => "form-control", 'style' => "width: 400px")));
     }
 
     /**
