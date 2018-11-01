@@ -90,22 +90,22 @@ abstract class NomenclatureController extends CommonController implements Entity
     }
 
     public function defaultKeysFilter() {
-//        return array('id' => 'text', 'nombre' => 'text', 'descripcion' => 'text',);
-        return [
-            'id' => 'text',
-            'nombre' => 'text'
-        ];
+        return array('id' => 'text', 'nombre' => 'text', 'descripcion' => 'text',);
+//        return [
+//            'id' => 'text',
+//            'nombre' => 'text'
+//        ];
     }
 
     public function defaultKeysI18n() {
-//        return array('id' => $this->get('translator')->trans('nomenclador.id', [], 'common'),
-//            'nombre' => $this->get('translator')->trans('nomenclador.nombre', [], 'common'),
-//            'descripcion' => $this->get('translator')->trans('nomenclador.descripcion', [], 'common')
-//        );
-        return [
-            'id' => $this->get('translator')->trans('nomenclador.id', [], 'common'),
+        return ['id' => $this->get('translator')->trans('nomenclador.id', [], 'common'),
             'nombre' => $this->get('translator')->trans('nomenclador.nombre', [], 'common'),
+            'descripcion' => $this->get('translator')->trans('nomenclador.descripcion', [], 'common')
         ];
+//        return [
+//            'id' => $this->get('translator')->trans('nomenclador.id', [], 'common'),
+//            'nombre' => $this->get('translator')->trans('nomenclador.nombre', [], 'common'),
+//        ];
     }
 
     public function keysFilterOnIndex() {

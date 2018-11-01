@@ -73,7 +73,7 @@ abstract class UniqueNomenclatureController extends NomenclatureController {
                 $exist = $em->getRepository($this->getEntityName())->findBy([$attr => $entity->$getMethod()]);
                 if (!empty($exist)) {
                     foreach ($exist as $item) {
-                        if ($item->getId() != $entity->getId() and $entity->$getMethod() == $item->$getMethod()) {
+                        if ($item->getId() != $entity->getId() && $entity->$getMethod() == $item->$getMethod()) {
                             $exist = true;
                             break;
                         }
@@ -88,7 +88,7 @@ abstract class UniqueNomenclatureController extends NomenclatureController {
                     $exist = $em->getRepository($this->getEntityName() . 'Lang')->findBy([$attr => $el->$getMethod(), 'lang' => $lang]);
                     if (!empty($exist)) {
                         foreach ($exist as $item) {
-                            if ($item->getId() != $el->getId() and $el->$getMethod() == $item->$getMethod()) {
+                            if ($item->getId() != $el->getId() && $el->$getMethod() == $item->$getMethod()) {
                                 $exist = true;
                                 break;
                             }

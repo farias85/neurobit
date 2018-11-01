@@ -54,7 +54,7 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        nbUtil: '@nb.util'
+        util: '@nb.util'
         nbUploads: 'uploads/'
         nbMaxFileSize : '%nb.max.file.size%'
         nbMaxVideoFileSize : '%nb.max.video.file.size%'

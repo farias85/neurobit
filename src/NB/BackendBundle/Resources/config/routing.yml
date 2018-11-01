@@ -19,19 +19,26 @@ bdispatch:
     options:
         expose: true
 
-common_equipo:
+backend_equipo:
     resource: "@BackendBundle/Resources/config/routing/equipo.yml"
     prefix:   /equipo
 
-common_prueba:
+backend_equipo_n:
+    resource: "@BackendBundle/Resources/config/routing/equipo-n.yml"
+    prefix:   /{_locale}/equipo-n/
+    defaults: { _locale: '%locale%' }
+    requirements:
+        _locale: '%locales_app%'
+
+backend_prueba:
     resource: "@BackendBundle/Resources/config/routing/prueba.yml"
     prefix:   /prueba
 
-common_especialidad:
+backend_especialidad:
     resource: "@BackendBundle/Resources/config/routing/especialidad.yml"
     prefix:   /especialidad
 
-common_procedencia:
+backend_procedencia:
     resource: "@BackendBundle/Resources/config/routing/procedencia.yml"
     prefix:   /procedencia
 
