@@ -1,6 +1,6 @@
 <?php
 
-namespace NB\CommonBundle\Controller;
+namespace NB\BackendBundle\Controller;
 
 use NB\CommonBundle\Entity\Procedencia;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -22,7 +22,7 @@ class ProcedenciaController extends Controller
 
         $procedencias = $em->getRepository('CommonBundle:Procedencia')->findAll();
 
-        return $this->render('procedencia/index.html.twig', array(
+        return $this->render('@Backend/procedencia/index.html.twig', array(
             'procedencias' => $procedencias,
         ));
     }
@@ -45,7 +45,7 @@ class ProcedenciaController extends Controller
             return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencium->getId())*/);
         }
 
-        return $this->render('procedencia/new.html.twig', array(
+        return $this->render('@Backend/procedencia/new.html.twig', array(
             'procedencium' => $procedencium,
             'form' => $form->createView(),
         ));
@@ -59,7 +59,7 @@ class ProcedenciaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($procedencium);
 
-        return $this->render('procedencia/show.html.twig', array(
+        return $this->render('@Backend/procedencia/show.html.twig', array(
             'procedencium' => $procedencium,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class ProcedenciaController extends Controller
             return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencium->getId())*/);
         }
 
-        return $this->render('procedencia/edit.html.twig', array(
+        return $this->render('@Backend/procedencia/edit.html.twig', array(
             'procedencium' => $procedencium,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

@@ -1,34 +1,34 @@
 prueba_index:
     path:     /{_locale}
-    defaults: { _controller: "CommonBundle:Prueba:index" }
+    defaults: { _controller: "BackendBundle:Prueba:index" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 prueba_show:
     path:     /{_locale}/{id}/show
-    defaults: { _controller: "CommonBundle:Prueba:show" }
+    defaults: { _controller: "BackendBundle:Prueba:show" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 prueba_new:
     path:     /{_locale}/new
-    defaults: { _controller: "CommonBundle:Prueba:new" }
+    defaults: { _controller: "BackendBundle:Prueba:new" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 prueba_edit:
     path:     /{_locale}/{id}/edit
-    defaults: { _controller: "CommonBundle:Prueba:edit" }
+    defaults: { _controller: "BackendBundle:Prueba:edit" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 prueba_delete:
     path:     /{_locale}/{id}/delete
-    defaults: { _controller: "CommonBundle:Prueba:delete" }
+    defaults: { _controller: "BackendBundle:Prueba:delete" }
     methods:  DELETE
     requirements:
             _locale: '%locales_app%'

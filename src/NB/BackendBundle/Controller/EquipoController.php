@@ -81,7 +81,7 @@ class EquipoController extends Controller
             return $this->redirectToRoute('equipo_index'/*, array('id' => $equipo->getId())*/);
         }
 
-        return $this->render('equipo/edit.html.twig', array(
+        return $this->render('@Backend/equipo/edit.html.twig', array(
             'equipo' => $equipo,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

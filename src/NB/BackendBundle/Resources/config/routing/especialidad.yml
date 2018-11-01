@@ -1,34 +1,34 @@
 especialidad_index:
     path:     /{_locale}
-    defaults: { _controller: "CommonBundle:Especialidad:index" }
+    defaults: { _controller: "BackendBundle:Especialidad:index" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 especialidad_show:
     path:     /{_locale}/{id}/show
-    defaults: { _controller: "CommonBundle:Especialidad:show" }
+    defaults: { _controller: "BackendBundle:Especialidad:show" }
     methods:  GET
     requirements:
             _locale: '%locales_app%'
 
 especialidad_new:
     path:     /{_locale}/new
-    defaults: { _controller: "CommonBundle:Especialidad:new" }
+    defaults: { _controller: "BackendBundle:Especialidad:new" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 especialidad_edit:
     path:     /{_locale}/{id}/edit
-    defaults: { _controller: "CommonBundle:Especialidad:edit" }
+    defaults: { _controller: "BackendBundle:Especialidad:edit" }
     methods:  [GET, POST]
     requirements:
             _locale: '%locales_app%'
 
 especialidad_delete:
     path:     /{_locale}/{id}/delete
-    defaults: { _controller: "CommonBundle:Especialidad:delete" }
+    defaults: { _controller: "BackendBundle:Especialidad:delete" }
     methods:  DELETE
     requirements:
             _locale: '%locales_app%'
