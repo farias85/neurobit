@@ -4,10 +4,10 @@
 {% block subtitulo %}Nueva Procedencia{% endblock %}
 {% block content %}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <br><input type="submit" value="Crear" class="btn btn-info"/>
-    {{ form_end(form) }}
+    <form action="{{ path('procedencia_new') }}" method="post">
+        {{ form_widget(form) }}
+        <br><input type="submit" value="Crear" class="btn btn-info"/>
+    </form>
 
     <br>
     <a href="{{ path('procedencia_index') }}" class="btn btn-warning">Volver a la lista</a>

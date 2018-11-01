@@ -4,11 +4,11 @@
 {% block subtitulo %}Editar Equipo{% endblock %}
 {% block content %}
 
-    {{ form_start(edit_form) }}
-    {{ form_widget(edit_form) }}
-    <br>
-    <input type="submit" value="Editar" class="btn btn-info"/>
-    {{ form_end(edit_form) }}
+    <form action="{{ path('equipo_edit',{'id':equipo.id}) }}" method="post">
+        {{ form_widget(edit_form) }}
+        <br>
+        <input type="submit" value="Editar" class="btn btn-info"/>
+    </form>
 
 
     <br>
