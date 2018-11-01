@@ -33,12 +33,4 @@ class EquipoNController extends NomenclatureController {
     public function getRoutePrefix() {
         return 'backend_equipo_n';
     }
-
-    /**
-     * Define los atributos de la clase que no se pueden repetir
-     * @return mixed array ['nombre', 'ci']
-     */
-    public function keysUnique() {
-        return ['nombre'];
-    }
 }
