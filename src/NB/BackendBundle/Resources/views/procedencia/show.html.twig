@@ -1,38 +1,54 @@
-{% extends ':backend:backend.layout.html.html.twig' %}
-{% block title %}Datos de Procedencia {% endblock %}
-{% block nombre %}Equipo{% endblock %}
-{% block subtitulo %}Datos de Procedencia {% endblock %}
-{% block content %}
-    <table class="table table-responsive">
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}Mostrar Procedencia {% endblock %}
+{% block nombre %}Procedencia{% endblock %}
+{% block subtitulo %}Mostrar Procedencia {% endblock %}
+{% block wrapper %}
+
+    {% block wrapper_header %} {% endblock %}
+
+    <table class="table table-striped" cellspacing="0" width="100%">
         <tbody>
         <tr>
             <th>Id</th>
-            <td>{{ procedencium.id }}</td>
+            <td>{{ procedencia.id }}</td>
         </tr>
         <tr>
             <th>Nombre</th>
-            <td>{{ procedencium.nombre }}</td>
+            <td>{{ procedencia.nombre }}</td>
         </tr>
         <tr>
             <th>Descripción</th>
-            <td>{{ procedencium.descripcion }}</td>
+            <td>{{ procedencia.descripcion }}</td>
         </tr>
         <tr>
             <th>&iquest;Fuera de la provincia?</th>
-            <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
+            <td>{% if procedencia.fueraProvincia %}{{ 'si' | trans }} {% else %} {{ 'no' | trans }}{% endif %}</td>
         </tr>
         </tbody>
     </table>
 
-    <br>
-    <a href="{{ path('procedencia_index') }}" class="btn btn-success">Volver a la lista</a>
+    {% block wrapper_footer %} {% endblock %}
 
-    <br><br>
-    <a href="{{ path('procedencia_edit', { 'id': procedencia.id }) }}" class="btn btn-info">Editar</a>
+{% endblock %}
 
-    <br><br>
-    {{ form_start(delete_form) }}
-    <input type="submit" value="Eliminar" class="btn btn-danger">
-    {{ form_end(delete_form) }}
-
+{% block footer %}
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-primary" href="{{ path('procedencia_index') }}">{{ 'crud.list' | trans }}</a>
+        </li>
+        <li>
+            <a class="btn btn-primary" href="{{ path('procedencia_new') }}">{{ 'crud.create' | trans }}</a>
+        </li>
+        <li>
+            <a class="btn btn-primary"
+               href="{{ path('procedencia_edit', { 'id': procedencia.id }) }}">{{ 'crud.edit' | trans }}</a>
+        </li>
+        <li>
+            <a class="btn btn-danger"
+               href="{{ path('procedencia_delete', { 'id': procedencia.id }) }}"
+               onclick="return confirm('¿{{ 'crud.delete' | trans }}?')">
+                {{ 'crud.delete' | trans }}
+            </a>
+        </li>
+    </ul>
 {% endblock %}

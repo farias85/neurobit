@@ -1,33 +1,73 @@
-{% extends ':backend:backend.layout.html.html.twig' %}
-{% block title %}Lista de Procedencias{% endblock %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.list' | trans }} Procedencia{% endblock %}
 {% block nombre %}Procedencia{% endblock %}
-{% block subtitulo %}Lista de Procedencias{% endblock %}
-{% block content %}
-    <table class="table table-responsive">
+{% block subtitulo %}{{ 'crud.list' | trans }} Procedencia{% endblock %}
+{% block wrapper %}
+
+    {% block wrapper_header %} {% endblock %}
+
+    <table class="table table-striped dtable" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>¿Fuera de la provincia?</th>
-            <th>Acciones</th>
+            {% block index_all_acciones_th %}
+                <th>{{ 'acciones' | trans }}</th>
+            {% endblock %}
         </tr>
         </thead>
         <tbody>
-        {% for procedencium in procedencias %}
+        {% for procedencia in procedencias %}
             <tr>
-                <td><a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}">{{ procedencium.id }}</a></td>
-                <td>{{ procedencium.nombre }}</td>
-                <td>{{ procedencium.descripcion }}</td>
-                <td>{% if procedencium.fueraProvincia %}Sí{% else %}No{% endif %}</td>
-                <td>
-                    <a href="{{ path('procedencia_show', { 'id': procedencium.id }) }}" class="btn btn-info">Mostrar</a>
-                    <a href="{{ path('procedencia_edit', { 'id': procedencium.id }) }}"
-                       class="btn btn-warning">Editar</a>
-                </td>
+                <td>{{ procedencia.id }}</a></td>
+                <td>{{ procedencia.nombre }}</td>
+                <td>{{ procedencia.descripcion }}</td>
+                <td>{% if procedencia.fueraProvincia %}{{ 'si' | trans }} {% else %} {{ 'no' | trans }} {% endif %}</td>
+                {% block index_all_acciones_td %}
+                    <td>
+                        <ul class="list-inline">
+                            {% block index_all_options %}
+                                {% block index_first_option %} {% endblock %}
+                                <li>
+                                    <a href="{{ path('procedencia_show', { 'id': procedencia.id }) }}"
+                                       title="{{ 'crud.info' | trans }}">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('procedencia_edit', { 'id': procedencia.id }) }}"
+                                       title="{{ 'crud.edit' | trans }}">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('procedencia_delete', { 'id': procedencia.id }) }}"
+                                       title="{{ 'crud.delete' | trans }}"
+                                       onclick="return confirm('¿{{ 'crud.delete' | trans }}?');">
+                                        <i class="glyphicon glyphicon-remove-circle"></i>
+                                    </a>
+                                </li>
+                            {% endblock %}
+                        </ul>
+                    </td>
+                {% endblock %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <br><a href="{{ path('procedencia_new') }}" class="btn btn-success">Crear nueva procedencia</a>
+
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-primary" href="{{ path('procedencia_new') }}">
+                {{ 'crud.create' | trans }} Procedencia
+            </a>
+        </li>
+    </ul>
 {% endblock %}

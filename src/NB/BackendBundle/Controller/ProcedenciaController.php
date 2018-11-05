@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ProcedenciaController extends Controller
 {
     /**
-     * Lists all procedencium entities.
+     * Lists all procedencia entities.
      *
      */
     public function indexAction()
@@ -28,78 +28,78 @@ class ProcedenciaController extends Controller
     }
 
     /**
-     * Creates a new procedencium entity.
+     * Creates a new procedencia entity.
      *
      */
     public function newAction(Request $request)
     {
-        $procedencium = new Procedencia();
-        $form = $this->createForm('NB\CommonBundle\Form\ProcedenciaType', $procedencium);
+        $procedencia = new Procedencia();
+        $form = $this->createForm('NB\CommonBundle\Form\ProcedenciaType', $procedencia);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($procedencium);
+            $em->persist($procedencia);
             $em->flush();
 
-            return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencium->getId())*/);
+            return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencia->getId())*/);
         }
 
         return $this->render('@Backend/Procedencia/new.html.twig', array(
-            'procedencium' => $procedencium,
+            'procedencia' => $procedencia,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a procedencium entity.
+     * Finds and displays a procedencia entity.
      *
      */
-    public function showAction(Procedencia $procedencium)
+    public function showAction(Procedencia $procedencia)
     {
-        $deleteForm = $this->createDeleteForm($procedencium);
+        $deleteForm = $this->createDeleteForm($procedencia);
 
         return $this->render('@Backend/Procedencia/show.html.twig', array(
-            'procedencium' => $procedencium,
+            'procedencia' => $procedencia,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing procedencium entity.
+     * Displays a form to edit an existing procedencia entity.
      *
      */
-    public function editAction(Request $request, Procedencia $procedencium)
+    public function editAction(Request $request, Procedencia $procedencia)
     {
-        $deleteForm = $this->createDeleteForm($procedencium);
-        $editForm = $this->createForm('NB\CommonBundle\Form\ProcedenciaType', $procedencium);
+        $deleteForm = $this->createDeleteForm($procedencia);
+        $editForm = $this->createForm('NB\CommonBundle\Form\ProcedenciaType', $procedencia);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencium->getId())*/);
+            return $this->redirectToRoute('procedencia_index'/*, array('id' => $procedencia->getId())*/);
         }
 
         return $this->render('@Backend/Procedencia/edit.html.twig', array(
-            'procedencium' => $procedencium,
+            'procedencia' => $procedencia,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a procedencium entity.
+     * Deletes a procedencia entity.
      *
      */
-    public function deleteAction(Request $request, Procedencia $procedencium)
+    public function deleteAction(Request $request, Procedencia $procedencia)
     {
-        $form = $this->createDeleteForm($procedencium);
+        $form = $this->createDeleteForm($procedencia);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($procedencium);
+            $em->remove($procedencia);
             $em->flush();
         }
 
@@ -107,16 +107,16 @@ class ProcedenciaController extends Controller
     }
 
     /**
-     * Creates a form to delete a procedencium entity.
+     * Creates a form to delete a procedencia entity.
      *
-     * @param Procedencia $procedencium The procedencium entity
+     * @param Procedencia $procedencia The procedencia entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Procedencia $procedencium)
+    private function createDeleteForm(Procedencia $procedencia)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('procedencia_delete', array('id' => $procedencium->getId())))
+            ->setAction($this->generateUrl('procedencia_delete', array('id' => $procedencia->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }

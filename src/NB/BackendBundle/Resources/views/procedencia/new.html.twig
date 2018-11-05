@@ -1,15 +1,26 @@
-{% extends ':backend:backend.layout.html.html.twig' %}
-{% block title %}Nueva Procedencia{% endblock %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.create' | trans }} Procedencia{% endblock %}
 {% block nombre %}Procedencia{% endblock %}
-{% block subtitulo %}Nueva Procedencia{% endblock %}
-{% block content %}
+{% block subtitulo %}{{ 'crud.create' | trans }} Procedencia{% endblock %}
+{% block wrapper %}
 
-    <form action="{{ path('procedencia_new') }}" method="post">
-        {{ form_widget(form) }}
-        <br><input type="submit" value="Crear" class="btn btn-info"/>
-    </form>
+    {% block wrapper_header %} {% endblock %}
 
-    <br>
-    <a href="{{ path('procedencia_index') }}" class="btn btn-warning">Volver a la lista</a>
+    <div class="col-lg-6">
+        <form action="{{ path('procedencia_new') }}" method="post" enctype="multipart/form-data">
+            {{ form_rest(form) }}
+            <br><input class="btn btn-success mt-10" type="submit" value="{{ 'crud.create' | trans }}"/>
+        </form>
+    </div>
 
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-primary" href="{{ path('procedencia_index') }}">{{ 'crud.list' | trans }}</a>
+        </li>
+    </ul>
 {% endblock %}

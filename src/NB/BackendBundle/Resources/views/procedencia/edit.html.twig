@@ -1,22 +1,31 @@
-{% extends ':backend:backend.layout.html.html.twig' %}
-{% block title %}Editar Procedencia{% endblock %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.edit' | trans }} Procedencia{% endblock %}
 {% block nombre %}Equipo{% endblock %}
-{% block subtitulo %}Editar Procedencia{% endblock %}
-{% block content %}
+{% block subtitulo %}{{ 'crud.edit' | trans }} Procedencia{% endblock %}
+{% block wrapper %}
 
-    <form action="{{ path('procedencia_edit',{'id':procedencia.id}) }}" method="post">
-        {{ form_widget(edit_form) }}
-        <br>
-        <input type="submit" value="Editar" class="btn btn-info"/>
-    </form>
+    {% block wrapper_header %} {% endblock %}
+
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="{{ path('procedencia_edit',{'id':procedencia.id}) }}" method="post"
+                  enctype="multipart/form-data">
+                {{ form_widget(edit_form) }}
+                <br>
+                <input class="btn btn-success mt-10" type="submit" value="{{ 'crud.edit' | trans }}"/>
+            </form>
+        </div>
+    </div>
 
 
-    <br>
-    <a href="{{ path('procedencia_index') }}" class="btn btn-success">Volver a la lista</a>
+    {% block wrapper_footer %} {% endblock %}
 
-    <br><br>
-    {{ form_start(delete_form) }}
-    <input type="submit" value="Eliminar" class="btn btn-danger">
-    {{ form_end(delete_form) }}
+{% endblock %}
 
+{% block footer %}
+    <ul class="list-inline">
+        <li>
+            <a class="btn btn-primary" href="{{ path('procedencia_index') }}">{{ 'crud.list' | trans }}</a>
+        </li>
+    </ul>
 {% endblock %}
