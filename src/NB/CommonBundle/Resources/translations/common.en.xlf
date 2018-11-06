@@ -17,6 +17,10 @@
         <source>nomenclador.descripcion</source>
         <target>Description</target>
       </trans-unit>
+      <trans-unit id="0hWd9S1" resname="nomenclador.fueraProvincia">
+        <source>nomenclador.fueraProvincia</source>
+        <target>Out of province?</target>
+      </trans-unit>
       <trans-unit id="u7dehdt" resname="operation.fail">
         <source>operation.fail</source>
         <target>An error occurred while executing the requested action!</target>

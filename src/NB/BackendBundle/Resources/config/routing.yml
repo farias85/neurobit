@@ -43,3 +43,8 @@ backend_procedencia:
     resource: "@BackendBundle/Resources/config/routing/procedencia.yml"
     prefix:   /procedencia
 
+backend_procedencia_n:
+    resource: "@BackendBundle/Resources/config/routing/procedencia-n.yml"
+    prefix:   /{_locale}/procedencia_n
+    requirements:
+            _locale: '%locales_app%'
