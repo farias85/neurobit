@@ -27,6 +27,11 @@ class PlanificacionController extends Controller
         ));
     }
 
+    public function index2Action()
+    {
+        return $this->render("@Frontend/Planificacion/index2.html.twig");
+    }
+
     /**
      * Creates a new planificacion entity.
      *
@@ -118,7 +123,6 @@ class PlanificacionController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('planificacion_delete', array('id' => $planificacion->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

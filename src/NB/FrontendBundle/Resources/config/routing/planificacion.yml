@@ -3,6 +3,11 @@ planificacion_index:
     defaults: { _controller: "FrontendBundle:Planificacion:index" }
     methods:  GET
 
+planificacion_index_2:
+    path:     /index_2
+    defaults: { _controller: "FrontendBundle:Planificacion:index2" }
+    methods:  GET
+
 planificacion_show:
     path:     /{id}/show
     defaults: { _controller: "FrontendBundle:Planificacion:show" }

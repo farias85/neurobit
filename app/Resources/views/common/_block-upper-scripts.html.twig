@@ -50,6 +50,10 @@
 <script src="{{ asset('bundles/common/js/nbApp/directive/MessagesDirective.js') }}"></script>
 <script src="{{ asset('bundles/common/js/nbApp/directive/LoadingDirective.js') }}"></script>
 
+
+<script src="{{ asset('bundles/common/js/angular-wizard/angular-wizard.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('bundles/common/js/angular-wizard/angular-wizard.css') }}">
+
 {% set locale = app.request.get('_locale') %}
 {% if locale is defined and locale is not empty %}
     <script type="text/javascript"
