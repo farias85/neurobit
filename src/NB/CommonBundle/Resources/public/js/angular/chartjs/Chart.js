@@ -1828,7 +1828,7 @@ module.exports = function(Chart) {
 		}
 	};
 
-	// Register the default config for this type
+	// Register the default routing for this type
 	Chart.defaults.scatter = defaultConfig;
 
 	// Scatter charts use line controllers
@@ -3840,7 +3840,7 @@ module.exports = function(Chart) {
 	Chart.controllers = {};
 
 	/**
-	 * Initializes the given config with global and chart default values.
+	 * Initializes the given routing with global and chart default values.
 	 */
 	function initConfig(config) {
 		config = config || {};
@@ -3860,7 +3860,7 @@ module.exports = function(Chart) {
 	}
 
 	/**
-	 * Updates the config of the chart
+	 * Updates the routing of the chart
 	 * @param chart {Chart.Controller} chart to update the options for
 	 */
 	function updateConfig(chart) {
@@ -5048,7 +5048,7 @@ module.exports = function(Chart) {
 				var baseVal = baseHasProperty ? base[key] : {};
 
 				if (key === 'scales') {
-					// Scale config merging is complex. Add our own function here for that
+					// Scale routing merging is complex. Add our own function here for that
 					base[key] = helpers.scaleMerge(baseVal, value);
 				} else if (key === 'scale') {
 					// Used in polar area & radar charts since there is only one scale
@@ -8337,7 +8337,7 @@ module.exports = function(Chart) {
 		// Use a registration function so that we can move to an ES6 map when we no longer need to support
 		// old browsers
 
-		// Scale config defaults
+		// Scale routing defaults
 		defaults: {},
 		registerScaleType: function(type, scaleConstructor, defaults) {
 			this.constructors[type] = scaleConstructor;
@@ -10325,7 +10325,7 @@ module.exports = function(Chart) {
 
 	/**
 	 * Initializes the canvas style and render size without modifying the canvas display size,
-	 * since responsiveness is handled by the controller.resize() method. The config is used
+	 * since responsiveness is handled by the controller.resize() method. The routing is used
 	 * to determine the aspect ratio to apply in case no explicit height has been specified.
 	 */
 	function initCanvas(canvas, config) {
@@ -10639,7 +10639,7 @@ module.exports = function(Chart) {
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
-	// Default config for a category scale
+	// Default routing for a category scale
 	var defaultConfig = {
 		position: 'bottom'
 	};

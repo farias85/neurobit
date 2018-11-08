@@ -11,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  */
 class Prueba {
+    public function __toString()
+    {
+        return $this->nombre;// TODO: Implement __toString() method.
+    }
+
     /**
      * @var int
      *

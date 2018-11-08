@@ -1,0 +1,24 @@
+asignacion_index:
+    path:     /
+    defaults: { _controller: "FrontendBundle:Asignacion:index" }
+    methods:  GET
+
+asignacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrontendBundle:Asignacion:show" }
+    methods:  GET
+
+asignacion_new:
+    path:     /new
+    defaults: { _controller: "FrontendBundle:Asignacion:new" }
+    methods:  [GET, POST]
+
+asignacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrontendBundle:Asignacion:edit" }
+    methods:  [GET, POST]
+
+asignacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrontendBundle:Asignacion:delete" }
+    methods:  DELETE

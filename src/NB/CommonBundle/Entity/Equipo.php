@@ -87,4 +87,9 @@ class Equipo {
     public function getDescripcion() {
         return $this->descripcion;
     }
+
+    public function __toString()
+    {
+        return $this->nombre;// TODO: Implement __toString() method.
+    }
 }

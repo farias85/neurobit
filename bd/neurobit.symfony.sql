@@ -122,7 +122,7 @@ CREATE TABLE `paciente` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `planificacion`
+-- Estructura de tabla para la tabla `Planificacion`
 --
 
 CREATE TABLE `planificacion` (
@@ -266,7 +266,7 @@ ALTER TABLE `paciente`
   ADD KEY `IDX_C6CBA95EBE7CFDCD` (`procedencia`);
 
 --
--- Indices de la tabla `planificacion`
+-- Indices de la tabla `Planificacion`
 --
 ALTER TABLE `planificacion`
   ADD PRIMARY KEY (`id`),
@@ -353,7 +353,7 @@ ALTER TABLE `media`
 ALTER TABLE `paciente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `planificacion`
+-- AUTO_INCREMENT de la tabla `Planificacion`
 --
 ALTER TABLE `planificacion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
@@ -418,7 +418,7 @@ ALTER TABLE `paciente`
   ADD CONSTRAINT `FK_C6CBA95EBE7CFDCD` FOREIGN KEY (`procedencia`) REFERENCES `procedencia` (`id`);
 
 --
--- Filtros para la tabla `planificacion`
+-- Filtros para la tabla `Planificacion`
 --
 ALTER TABLE `planificacion`
   ADD CONSTRAINT `FK_320E413D25629271` FOREIGN KEY (`asignacion`) REFERENCES `asignacion` (`id`);

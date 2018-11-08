@@ -1,0 +1,24 @@
+planificacion_index:
+    path:     /
+    defaults: { _controller: "FrontendBundle:Planificacion:index" }
+    methods:  GET
+
+planificacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrontendBundle:Planificacion:show" }
+    methods:  GET
+
+planificacion_new:
+    path:     /new
+    defaults: { _controller: "FrontendBundle:Planificacion:new" }
+    methods:  [GET, POST]
+
+planificacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrontendBundle:Planificacion:edit" }
+    methods:  [GET, POST]
+
+planificacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrontendBundle:Planificacion:delete" }
+    methods:  DELETE

@@ -10,7 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="asignacion")
  * @ORM\Entity
  */
-class Asignacion {
+class Asignacion
+{
     /**
      * @var int
      *
@@ -60,7 +61,8 @@ class Asignacion {
      *
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -71,7 +73,8 @@ class Asignacion {
      *
      * @return Asignacion
      */
-    public function setTiempo($tiempo) {
+    public function setTiempo($tiempo)
+    {
         $this->tiempo = $tiempo;
 
         return $this;
@@ -82,7 +85,8 @@ class Asignacion {
      *
      * @return int
      */
-    public function getTiempo() {
+    public function getTiempo()
+    {
         return $this->tiempo;
     }
 
@@ -93,7 +97,8 @@ class Asignacion {
      *
      * @return Asignacion
      */
-    public function setDisponible($disponible) {
+    public function setDisponible($disponible)
+    {
         $this->disponible = $disponible;
 
         return $this;
@@ -104,7 +109,8 @@ class Asignacion {
      *
      * @return bool
      */
-    public function getDisponible() {
+    public function getDisponible()
+    {
         return $this->disponible;
     }
 
@@ -115,7 +121,8 @@ class Asignacion {
      *
      * @return Asignacion
      */
-    public function setEquipo(\NB\CommonBundle\Entity\Equipo $equipo = null) {
+    public function setEquipo(\NB\CommonBundle\Entity\Equipo $equipo = null)
+    {
         $this->equipo = $equipo;
 
         return $this;
@@ -126,7 +133,8 @@ class Asignacion {
      *
      * @return \NB\CommonBundle\Entity\Equipo|null
      */
-    public function getEquipo() {
+    public function getEquipo()
+    {
         return $this->equipo;
     }
 
@@ -137,7 +145,8 @@ class Asignacion {
      *
      * @return Asignacion
      */
-    public function setPrueba(\NB\CommonBundle\Entity\Prueba $prueba = null) {
+    public function setPrueba(\NB\CommonBundle\Entity\Prueba $prueba = null)
+    {
         $this->prueba = $prueba;
 
         return $this;
@@ -148,7 +157,13 @@ class Asignacion {
      *
      * @return \NB\CommonBundle\Entity\Prueba|null
      */
-    public function getPrueba() {
+    public function getPrueba()
+    {
         return $this->prueba;
+    }
+
+    public function __toString()
+    {
+        return $this->prueba . " - " . $this->equipo;// TODO: Implement __toString() method.
     }
 }

@@ -82,7 +82,7 @@ CREATE TABLE paciente(
 
 
 -- 
--- TABLE: planificacion 
+-- TABLE: Planificacion
 --
 
 CREATE TABLE planificacion(
@@ -210,7 +210,7 @@ ALTER TABLE paciente ADD CONSTRAINT Refprocedencia34
 
 
 -- 
--- TABLE: planificacion 
+-- TABLE: Planificacion
 --
 
 ALTER TABLE planificacion ADD CONSTRAINT Refasignacion32 

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Planificacion</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ planificacion.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if planificacion.fecha %}{{ planificacion.fecha|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Horainicio</th>
+                <td>{% if planificacion.horaInicio %}{{ planificacion.horaInicio|date('H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Horafin</th>
+                <td>{% if planificacion.horaFin %}{{ planificacion.horaFin|date('H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('planificacion_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('planificacion_edit', { 'id': planificacion.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
