@@ -24,6 +24,10 @@
 <script type="text/javascript"
         src="{{ asset('bundles/common/js/angular/growl-notifications/dist/angular-growl-notifications.js') }}"></script>
 
+
+<script src="{{ asset('bundles/common/js/angular-wizard/angular-wizard.js') }}"></script>
+<link rel="stylesheet" href="{{ asset('bundles/common/js/angular-wizard/angular-wizard.css') }}">
+
 <script src="{{ asset('bundles/common/js/nbApp/nbApp.js') }}"></script>
 <script src="{{ asset('bundles/common/js/nbApp/language/en.js') }}"></script>
 <script src="{{ asset('bundles/common/js/nbApp/language/es.js') }}"></script>
@@ -51,8 +55,6 @@
 <script src="{{ asset('bundles/common/js/nbApp/directive/LoadingDirective.js') }}"></script>
 
 
-<script src="{{ asset('bundles/common/js/angular-wizard/angular-wizard.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('bundles/common/js/angular-wizard/angular-wizard.css') }}">
 
 {% set locale = app.request.get('_locale') %}
 {% if locale is defined and locale is not empty %}
