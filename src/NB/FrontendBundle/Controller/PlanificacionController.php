@@ -3,6 +3,7 @@
 namespace NB\FrontendBundle\Controller;
 
 use NB\CommonBundle\Entity\Planificacion;
+use NB\CommonBundle\Util\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -29,7 +30,28 @@ class PlanificacionController extends Controller
 
     public function index2Action()
     {
-        return $this->render("@Frontend/Planificacion/index2.html.twig");
+        $em = $this->getDoctrine()->getManager();
+        $equipos = $this->findArrayResult(Entity::EQUIPO);
+        $pruebas = $this->findArrayResult(Entity::PRUEBA);
+        return $this->render("@Frontend/Planificacion/index2.html.twig", array(
+            'equipos' => $equipos,
+            'pruebas' => $pruebas,
+        ));
+    }
+
+    /**
+     * @param $entity string
+     * @param $orderBy string
+     */
+    public function findArrayResult($entity, $orderBy = 'nombre')
+    {
+        $em = $this->getDoctrine()->getManager();
+        $result = $em->getRepository($entity)
+            ->createQueryBuilder('e')
+            ->orderBy('e.' . $orderBy, 'ASC')
+            ->getQuery()
+            ->getArrayResult();
+        return $result;
     }
 
     /**
