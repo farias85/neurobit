@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AsignacionType extends AbstractType
+class Planificacion2Type extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,19 +14,16 @@ class AsignacionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tiempo', null, array('label' => "Tiempo (min)", 'attr' => array('class' => "form-control", 'style' => "width: 200px")))
-            ->add('disponible')
-            ->add('equipo',null, array( 'attr' => array('class' => "form-control", 'style' => "width: 200px")))
-            ->add('prueba',null, array( 'attr' => array('class' => "form-control", 'style' => "width: 200px")));
-    }
-
-    /**
+            ->add('fecha')
+            ->add('horaInicio', null, array('label' => 'Hora de Inicio'))
+            ->add('horaFin', null, array('label' => 'Hora de Fin'));
+    }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NB\CommonBundle\Entity\Asignacion',
+            'data_class' => 'NB\CommonBundle\Entity\Planificacion'
         ));
     }
 
@@ -35,7 +32,7 @@ class AsignacionType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'nb_commonbundle_asignacion';
+        return 'nb_commonbundle_planificacion';
     }
 
 

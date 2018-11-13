@@ -2,6 +2,7 @@
 
 namespace NB\FrontendBundle\Controller;
 
+use NB\CommonBundle\Entity\Asignacion;
 use NB\CommonBundle\Entity\Planificacion;
 use NB\CommonBundle\Util\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -31,11 +32,17 @@ class PlanificacionController extends Controller
     public function index2Action()
     {
         $em = $this->getDoctrine()->getManager();
+        $asignacion = new Asignacion();
+        $form1 = $this->createForm('NB\CommonBundle\Form\AsignacionType', $asignacion);
+        $planificacion = new Planificacion();
+        $form2 = $this->createForm('NB\CommonBundle\Form\Planificacion2Type', $planificacion);
         $equipos = $this->findArrayResult(Entity::EQUIPO);
         $pruebas = $this->findArrayResult(Entity::PRUEBA);
         return $this->render("@Frontend/Planificacion/index2.html.twig", array(
             'equipos' => $equipos,
             'pruebas' => $pruebas,
+            'form1' => $form1->createView(),
+            'form2' => $form2->createView(),
         ));
     }
 

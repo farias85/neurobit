@@ -6,6 +6,14 @@
             <wz-step wz-title="Asignación">
                 <div class="row">
                     <div class="col-lg-3">
+                        {#<label for="fecha_prueba">Fecha de prueba</label>
+                        <input type="date" name="fecha_prueba" id="fecha_prueba" >#}
+                        {{ form_start(form1) }}
+                        {{ form_widget(form1) }}
+                        {#<input type="submit" value="Create" />#}
+                        {{ form_end(form1) }}
+                    </div>
+                    {#<div class="col-lg-3">
                         <label for="equipo">Equipo</label>
                         <select name="equipo" id="equipo" class="form-control">
                             {% for equipo in equipos %}
@@ -20,16 +28,30 @@
                                 <option value="{{ prueba.id }}">{{ prueba.nombre }}</option>
                             {% endfor %}
                         </select>
-                    </div>
-                    <div class="col-lg-4">
+                    </div>#}
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-2">
                         <input type="submit" wz-next value="Continuar" class="btn btn-success"/>
                     </div>
                 </div>
             </wz-step>
             <wz-step wz-title="Planificación">
-                <h1>Continuing</h1>
-                <p>You have continued here!</p>
-                <input type="submit" wz-next value="Finalizar"/>
+                <div class="row">
+                    <div class="col-lg-3">
+                        {{ form_start(form2) }}
+                        {{ form_widget(form2) }}
+                        {#<input type="submit" value="Create" />#}
+                        {{ form_end(form2) }}
+                    </div>
+                </div>
+                <div class="row" style="padding-top: 10px">
+                    <div class="col-lg-4"></div>
+                    <div class="col-lg-2">
+                        <input type="submit" wz-next value="Finalizar" class="btn btn-success"/>
+                    </div>
+                </div>
             </wz-step>
             {#<wz-step wz-title="More steps">
                 <p>Even more steps!!</p>
