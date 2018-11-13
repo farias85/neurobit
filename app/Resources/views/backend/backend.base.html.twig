@@ -44,6 +44,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/backend/dashio/bootstrap-datepicker/css/datepicker.css') }}"/>
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/backend/dashio/bootstrap-daterangepicker/daterangepicker.css') }}"/>
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/backend/dashio/bootstrap-timepicker/compiled/timepicker.css') }}"/>
+        <link rel="stylesheet" type="text/css"
+              href="{{ asset('bundles/backend/dashio/bootstrap-datetimepicker/css/datetimepicker.css') }}"/>
     {% endblock %}
 
     {% include ':common:_block-upper-scripts.html.twig' %}
@@ -74,6 +83,20 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="{{ asset('bundles/backend/sb-admin/dist/js/sb-admin-2.js') }}"></script>
+
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-datepicker/js/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-daterangepicker/date.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-daterangepicker/moment.min.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/backend/dashio/bootstrap-timepicker/js/bootstrap-timepicker.js') }}"></script>
+    <script src="{{ asset('bundles/backend/dashio/advanced-form-components.js') }}"></script>
 
 {% endblock %}
 
