@@ -3,6 +3,7 @@
 namespace NB\CommonBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,7 @@ class PlanificacionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fecha')
+            ->add('fecha', TextType::class, array('attr' => array('class' => 'form-control default-date-picker', 'style' => 'width: 200px')))
             ->add('horaInicio', null, array('label' => 'Hora de Inicio'))
             ->add('horaFin', null, array('label' => 'Hora de Fin'))
             ->add('asignacion', null, array('label' => 'Asignación'));

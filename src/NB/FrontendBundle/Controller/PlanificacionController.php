@@ -73,6 +73,9 @@ class PlanificacionController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $data = $form->getData();
+            $f = $data->getFecha();
+            $planificacion->setFecha(new \DateTime($f));
             $em->persist($planificacion);
             $em->flush();
 

@@ -1,12 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
 
-{% block body %}
+{% block wrapper %}
     <h1>Planificacion creation</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div class="col-lg-6">
+        <form action="{{ path('planificacion_new') }}" method="post" enctype="multipart/form-data">
+            {{ form_rest(form) }}
+            <br><input class="btn btn-success mt-10" type="submit" value="{{ 'crud.create' | trans }}"/>
+        </form>
+    </div>
 
     <ul>
         <li>
