@@ -10,7 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="planificacion")
  * @ORM\Entity
  */
-class Planificacion {
+class Planificacion
+{
     /**
      * @var int
      *
@@ -57,7 +58,8 @@ class Planificacion {
      *
      * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -68,7 +70,8 @@ class Planificacion {
      *
      * @return Planificacion
      */
-    public function setFecha($fecha) {
+    public function setFecha($fecha)
+    {
         $this->fecha = $fecha;
 
         return $this;
@@ -79,8 +82,9 @@ class Planificacion {
      *
      * @return \DateTime
      */
-    public function getFecha() {
-        return $this->fecha;
+    public function getFecha()
+    {
+        return $this->fecha->format('Y-m-d');
     }
 
     /**
@@ -90,7 +94,8 @@ class Planificacion {
      *
      * @return Planificacion
      */
-    public function setHoraInicio($horaInicio) {
+    public function setHoraInicio($horaInicio)
+    {
         $this->horaInicio = $horaInicio;
 
         return $this;
@@ -101,7 +106,8 @@ class Planificacion {
      *
      * @return \DateTime
      */
-    public function getHoraInicio() {
+    public function getHoraInicio()
+    {
         return $this->horaInicio;
     }
 
@@ -112,7 +118,8 @@ class Planificacion {
      *
      * @return Planificacion
      */
-    public function setHoraFin($horaFin) {
+    public function setHoraFin($horaFin)
+    {
         $this->horaFin = $horaFin;
 
         return $this;
@@ -123,7 +130,8 @@ class Planificacion {
      *
      * @return \DateTime
      */
-    public function getHoraFin() {
+    public function getHoraFin()
+    {
         return $this->horaFin;
     }
 
@@ -134,7 +142,8 @@ class Planificacion {
      *
      * @return Planificacion
      */
-    public function setAsignacion(\NB\CommonBundle\Entity\Asignacion $asignacion = null) {
+    public function setAsignacion(\NB\CommonBundle\Entity\Asignacion $asignacion = null)
+    {
         $this->asignacion = $asignacion;
 
         return $this;
@@ -145,7 +154,8 @@ class Planificacion {
      *
      * @return \NB\CommonBundle\Entity\Asignacion|null
      */
-    public function getAsignacion() {
+    public function getAsignacion()
+    {
         return $this->asignacion;
     }
 }

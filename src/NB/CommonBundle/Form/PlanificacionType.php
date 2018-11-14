@@ -18,7 +18,7 @@ class PlanificacionType extends AbstractType
             ->add('fecha', TextType::class, array('attr' => array('class' => 'form-control default-date-picker', 'style' => 'width: 200px')))
             ->add('horaInicio', null, array('label' => 'Hora de Inicio'))
             ->add('horaFin', null, array('label' => 'Hora de Fin'))
-            ->add('asignacion', null, array('label' => 'Asignación'));
+            ->add('asignacion', null, array('label' => 'Asignación','attr' => array('class' => 'form-control', 'style' => 'width: 200px')));
     }/**
      * {@inheritdoc}
      */
