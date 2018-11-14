@@ -38,9 +38,13 @@ frontend_sec:
 
 frontend_asignacion:
     resource: "@FrontendBundle/Resources/config/routing/asignacion.yml"
-    prefix:   /asignacion
+    prefix:    /{_locale}/asignacion
+    requirements:
+            _locale: '%locales_app%'
 
 frontend_planificacion:
     resource: "@FrontendBundle/Resources/config/routing/planificacion.yml"
-    prefix:   /planificacion
+    prefix:    /{_locale}/planificacion
+    requirements:
+            _locale: '%locales_app%'
 
