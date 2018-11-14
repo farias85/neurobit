@@ -26,4 +26,4 @@ planificacion_edit:
 planificacion_delete:
     path:     /{id}/delete
     defaults: { _controller: "FrontendBundle:Planificacion:delete" }
-    methods:  DELETE
+#    methods:  DELETE

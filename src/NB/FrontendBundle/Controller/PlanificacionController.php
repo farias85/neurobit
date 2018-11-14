@@ -132,7 +132,7 @@ class PlanificacionController extends Controller
      * Deletes a planificacion entity.
      *
      */
-    public function deleteAction(Request $request, Planificacion $planificacion)
+    /*public function deleteAction(Request $request, Planificacion $planificacion)
     {
         $form = $this->createDeleteForm($planificacion);
         $form->handleRequest($request);
@@ -143,6 +143,17 @@ class PlanificacionController extends Controller
             $em->flush();
         }
 
+        return $this->redirectToRoute('planificacion_index');
+    }*/
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $planificacion = $em->getRepository(Entity::PLANIFICACION)->find($id);
+        if (!empty($planificacion)) {
+            $em->remove($planificacion);
+            $em->flush();
+        }
         return $this->redirectToRoute('planificacion_index');
     }
 

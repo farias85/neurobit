@@ -29,6 +29,6 @@ procedencia_edit:
 procedencia_delete:
     path:     /{_locale}/{id}/delete
     defaults: { _controller: "BackendBundle:Procedencia:delete" }
-    methods:  DELETE
+#    methods:  DELETE
     requirements:
             _locale: '%locales_app%'

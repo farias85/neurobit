@@ -3,6 +3,7 @@
 namespace NB\BackendBundle\Controller;
 
 use NB\CommonBundle\Entity\Procedencia;
+use NB\CommonBundle\Util\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -92,17 +93,28 @@ class ProcedenciaController extends Controller
      * Deletes a procedencia entity.
      *
      */
-    public function deleteAction(Request $request, Procedencia $procedencia)
-    {
-        $form = $this->createDeleteForm($procedencia);
-        $form->handleRequest($request);
+    /* public function deleteAction(Request $request, Procedencia $procedencia)
+     {
+         $form = $this->createDeleteForm($procedencia);
+         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+         if ($form->isSubmitted() && $form->isValid()) {
+             $em = $this->getDoctrine()->getManager();
+             $em->remove($procedencia);
+             $em->flush();
+         }
+
+         return $this->redirectToRoute('procedencia_index');
+     }*/
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $procedencia = $em->getRepository(Entity::PROCEDENCIA)->find($id);
+        if (!empty($procedencia)) {
             $em->remove($procedencia);
             $em->flush();
         }
-
         return $this->redirectToRoute('procedencia_index');
     }
 

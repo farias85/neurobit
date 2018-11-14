@@ -3,6 +3,7 @@
 namespace NB\FrontendBundle\Controller;
 
 use NB\CommonBundle\Entity\Asignacion;
+use NB\CommonBundle\Util\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -92,7 +93,7 @@ class AsignacionController extends Controller
      * Deletes a asignacion entity.
      *
      */
-    public function deleteAction(Request $request, Asignacion $asignacion)
+    /*public function deleteAction(Request $request, Asignacion $asignacion)
     {
         $form = $this->createDeleteForm($asignacion);
         $form->handleRequest($request);
@@ -104,8 +105,18 @@ class AsignacionController extends Controller
         }
 
         return $this->redirectToRoute('asignacion_index');
+    }*/
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $asignacion = $em->getRepository(Entity::ASIGNACION)->find($id);
+        if (!empty($asignacion)) {
+            $em->remove($asignacion);
+            $em->flush();
+        }
+        return $this->redirectToRoute('asignacion_index');
     }
-
+    
     /**
      * Creates a form to delete a asignacion entity.
      *
