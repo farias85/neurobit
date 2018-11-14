@@ -1,34 +1,24 @@
 procedencia_index:
-    path:     /{_locale}
+    path:     /
     defaults: { _controller: "BackendBundle:Procedencia:index" }
     methods:  GET
-    requirements:
-            _locale: '%locales_app%'
 
 procedencia_show:
-    path:     /{_locale}/{id}/show
+    path:     /{id}/show
     defaults: { _controller: "BackendBundle:Procedencia:show" }
     methods:  GET
-    requirements:
-            _locale: '%locales_app%'
 
 procedencia_new:
-    path:     /{_locale}/new
+    path:     /new
     defaults: { _controller: "BackendBundle:Procedencia:new" }
     methods:  [GET, POST]
-    requirements:
-            _locale: '%locales_app%'
 
 procedencia_edit:
-    path:     /{_locale}/{id}/edit
+    path:     /{id}/edit
     defaults: { _controller: "BackendBundle:Procedencia:edit" }
     methods:  [GET, POST]
-    requirements:
-            _locale: '%locales_app%'
 
 procedencia_delete:
-    path:     /{_locale}/{id}/delete
+    path:     /{id}/delete
     defaults: { _controller: "BackendBundle:Procedencia:delete" }
 #    methods:  DELETE
-    requirements:
-            _locale: '%locales_app%'

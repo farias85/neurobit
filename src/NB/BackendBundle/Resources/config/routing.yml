@@ -41,4 +41,6 @@ backend_especialidad:
 
 backend_procedencia:
     resource: "@BackendBundle/Resources/config/routing/procedencia.yml"
-    prefix:   /procedencia
+    prefix:   /{_locale}/procedencia
+    requirements:
+            _locale: '%locales_app%'
