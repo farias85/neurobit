@@ -1,43 +1,73 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.list' | trans }} Planificación{% endblock %}
+{% block nombre %}Planificación{% endblock %}
+{% block subtitulo %}{{ 'crud.list' | trans }} Planificación{% endblock %}
+{% block wrapper %}
 
-{% block body %}
-    <h1>Planificacions list</h1>
+    {% block wrapper_header %} {% endblock %}
 
-    <table>
+    <table class="table table-striped dtable" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Fecha</th>
-                <th>Horainicio</th>
-                <th>Horafin</th>
-                <th>Actions</th>
+                <th>Hora de inicio</th>
+                <th>Hora de fin</th>
+                {% block index_all_acciones_th %}
+                    <th>{{ 'acciones' | trans }}</th>
+                {% endblock %}
             </tr>
         </thead>
         <tbody>
         {% for planificacion in planificacions %}
             <tr>
-                <td><a href="{{ path('planificacion_show', { 'id': planificacion.id }) }}">{{ planificacion.id }}</a></td>
+                <td>{{ planificacion.id }}</td>
                 <td>{% if planificacion.fecha %}{{ planificacion.fecha|date('Y-m-d') }}{% endif %}</td>
                 <td>{% if planificacion.horaInicio %}{{ planificacion.horaInicio|date('H:i:s') }}{% endif %}</td>
                 <td>{% if planificacion.horaFin %}{{ planificacion.horaFin|date('H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('planificacion_show', { 'id': planificacion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('planificacion_edit', { 'id': planificacion.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                {% block index_all_acciones_td %}
+                    <td>
+                        <ul class="list-inline">
+                            {% block index_all_options %}
+                                {% block index_first_option %} {% endblock %}
+                                <li>
+                                    <a href="{{ path('planificacion_show', { 'id': planificacion.id }) }}"
+                                       title="{{ 'crud.info' | trans }}">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('planificacion_edit', { 'id': planificacion.id }) }}"
+                                       title="{{ 'crud.edit' | trans }}">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('planificacion_delete', { 'id': planificacion.id }) }}"
+                                       title="{{ 'crud.delete' | trans }}"
+                                       onclick="return confirm('¿{{ 'crud.delete' | trans }}?');">
+                                        <i class="glyphicon glyphicon-remove-circle"></i>
+                                    </a>
+                                </li>
+                            {% endblock %}
+                        </ul>
+                    </td>
+                {% endblock %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('planificacion_new') }}">Create a new planificacion</a>
+            <a class="btn btn-primary" href="{{ path('planificacion_new') }}">
+                {{ 'crud.create' | trans }} Planificación
+            </a>
         </li>
     </ul>
 {% endblock %}

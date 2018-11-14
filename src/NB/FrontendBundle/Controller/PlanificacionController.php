@@ -113,6 +113,9 @@ class PlanificacionController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $data = $editForm->getData();
+            $f = $data->getFecha();
+            $planificacion->setFecha(new \DateTime($f));
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('planificacion_index');

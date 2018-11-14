@@ -1,41 +1,71 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.list' | trans }} Asignación{% endblock %}
+{% block nombre %}Asignación{% endblock %}
+{% block subtitulo %}{{ 'crud.list' | trans }} Asignación{% endblock %}
+{% block wrapper %}
 
-{% block body %}
-    <h1>Asignacions list</h1>
+    {% block wrapper_header %} {% endblock %}
 
-    <table>
+    <table class="table table-striped dtable" cellspacing="0" width="100%">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Tiempo</th>
-                <th>Disponible</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Tiempo</th>
+            <th>Disponible</th>
+            {% block index_all_acciones_th %}
+                <th>{{ 'acciones' | trans }}</th>
+            {% endblock %}
+        </tr>
         </thead>
         <tbody>
         {% for asignacion in asignacions %}
             <tr>
-                <td><a href="{{ path('asignacion_show', { 'id': asignacion.id }) }}">{{ asignacion.id }}</a></td>
+                <td>{{ asignacion.id }}</td>
                 <td>{{ asignacion.tiempo }}</td>
-                <td>{% if asignacion.disponible %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('asignacion_show', { 'id': asignacion.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('asignacion_edit', { 'id': asignacion.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
+                <td>{% if asignacion.disponible %}{{ 'si' | trans }} {% else %} {{ 'no' | trans }}}{% endif %}</td>
+                {% block index_all_acciones_td %}
+                    <td>
+                        <ul class="list-inline">
+                            {% block index_all_options %}
+                                {% block index_first_option %} {% endblock %}
+                                <li>
+                                    <a href="{{ path('asignacion_show', { 'id': asignacion.id }) }}"
+                                       title="{{ 'crud.info' | trans }}">
+                                        <i class="glyphicon glyphicon-search"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('asignacion_edit', { 'id': asignacion.id }) }}"
+                                       title="{{ 'crud.edit' | trans }}">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('asignacion_delete', { 'id': asignacion.id }) }}"
+                                       title="{{ 'crud.delete' | trans }}"
+                                       onclick="return confirm('¿{{ 'crud.delete' | trans }}?');">
+                                        <i class="glyphicon glyphicon-remove-circle"></i>
+                                    </a>
+                                </li>
+                            {% endblock %}
+                        </ul>
+                    </td>
+                {% endblock %}
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('asignacion_new') }}">Create a new asignacion</a>
+            <a class="btn btn-primary" href="{{ path('asignacion_new') }}">
+                {{ 'crud.create' | trans }} Asignación
+            </a>
         </li>
     </ul>
 {% endblock %}

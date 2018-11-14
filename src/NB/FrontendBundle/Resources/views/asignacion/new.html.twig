@@ -1,16 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}{{ 'crud.create' | trans }} Asignación{% endblock %}
+{% block nombre %}Asignación{% endblock %}
+{% block subtitulo %}{{ 'crud.create' | trans }} Asignación{% endblock %}
+{% block wrapper %}
 
-{% block body %}
-    <h1>Asignacion creation</h1>
+    {% block wrapper_header %} {% endblock %}
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+    <div class="col-lg-6">
+        <form action="{{ path('asignacion_new') }}" method="post" enctype="multipart/form-data">
+            {{ form_rest(form) }}
+            <br><input class="btn btn-success mt-10" type="submit" value="{{ 'crud.create' | trans }}"/>
+        </form>
+    </div>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('asignacion_index') }}">Back to the list</a>
+            <a class="btn btn-primary" href="{{ path('asignacion_index') }}">{{ 'crud.list' | trans }}</a>
         </li>
     </ul>
 {% endblock %}

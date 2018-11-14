@@ -1,9 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}Mostrar Asignación {% endblock %}
+{% block nombre %}Asignación{% endblock %}
+{% block subtitulo %}Mostrar Asignación {% endblock %}
+{% block wrapper %}
 
-{% block body %}
-    <h1>Asignacion</h1>
+    {% block wrapper_header %} {% endblock %}
 
-    <table>
+    <table class="table table-striped" cellspacing="0" width="100%">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,22 +18,33 @@
             </tr>
             <tr>
                 <th>Disponible</th>
-                <td>{% if asignacion.disponible %}Yes{% else %}No{% endif %}</td>
+                <td>{% if asignacion.disponible %}{{ 'si' | trans }} {% else %} {{ 'no' | trans }}{% endif %}</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('asignacion_index') }}">Back to the list</a>
+            <a class="btn btn-primary" href="{{ path('asignacion_index') }}">{{ 'crud.list' | trans }}</a>
         </li>
         <li>
-            <a href="{{ path('asignacion_edit', { 'id': asignacion.id }) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ path('asignacion_new') }}">{{ 'crud.create' | trans }}</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a class="btn btn-primary"
+               href="{{ path('asignacion_edit', { 'id': asignacion.id }) }}">{{ 'crud.edit' | trans }}</a>
+        </li>
+        <li>
+            <a class="btn btn-danger"
+               href="{{ path('asignacion_delete', { 'id': asignacion.id }) }}"
+               onclick="return confirm('¿{{ 'crud.delete' | trans }}?')">
+                {{ 'crud.delete' | trans }}
+            </a>
         </li>
     </ul>
 {% endblock %}

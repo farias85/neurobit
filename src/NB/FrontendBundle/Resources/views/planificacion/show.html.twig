@@ -1,40 +1,54 @@
-{% extends 'base.html.twig' %}
+{% extends 'BackendBundle:Layout:backend.html.twig' %}
+{% block title %}Mostrar Planificación {% endblock %}
+{% block nombre %}Planificación{% endblock %}
+{% block subtitulo %}Mostrar Planificación {% endblock %}
+{% block wrapper %}
 
-{% block body %}
-    <h1>Planificacion</h1>
+    {% block wrapper_header %} {% endblock %}
 
-    <table>
+    <table class="table table-striped" cellspacing="0" width="100%">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ planificacion.id }}</td>
-            </tr>
-            <tr>
-                <th>Fecha</th>
-                <td>{% if planificacion.fecha %}{{ planificacion.fecha|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Horainicio</th>
-                <td>{% if planificacion.horaInicio %}{{ planificacion.horaInicio|date('H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Horafin</th>
-                <td>{% if planificacion.horaFin %}{{ planificacion.horaFin|date('H:i:s') }}{% endif %}</td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ planificacion.id }}</td>
+        </tr>
+        <tr>
+            <th>Fecha</th>
+            <td>{% if planificacion.fecha %}{{ planificacion.fecha|date('Y-m-d') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Hora de inicio</th>
+            <td>{% if planificacion.horaInicio %}{{ planificacion.horaInicio|date('H:i:s') }}{% endif %}</td>
+        </tr>
+        <tr>
+            <th>Hora de fin</th>
+            <td>{% if planificacion.horaFin %}{{ planificacion.horaFin|date('H:i:s') }}{% endif %}</td>
+        </tr>
         </tbody>
     </table>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('planificacion_index') }}">Back to the list</a>
+            <a class="btn btn-primary" href="{{ path('planificacion_index') }}">{{ 'crud.list' | trans }}</a>
         </li>
         <li>
-            <a href="{{ path('planificacion_edit', { 'id': planificacion.id }) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ path('planificacion_new') }}">{{ 'crud.create' | trans }}</a>
         </li>
         <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
+            <a class="btn btn-primary"
+               href="{{ path('planificacion_edit', { 'id': planificacion.id }) }}">{{ 'crud.edit' | trans }}</a>
+        </li>
+        <li>
+            <a class="btn btn-danger"
+               href="{{ path('planificacion_delete', { 'id': planificacion.id }) }}"
+               onclick="return confirm('¿{{ 'crud.delete' | trans }}?')">
+                {{ 'crud.delete' | trans }}
+            </a>
         </li>
     </ul>
 {% endblock %}

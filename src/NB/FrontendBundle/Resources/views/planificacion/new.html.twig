@@ -1,7 +1,9 @@
 {% extends 'BackendBundle:Layout:backend.html.twig' %}
 
+{% block title %}{{ 'crud.create' | trans }} Planificación{% endblock %}
+{% block nombre %}Planificación{% endblock %}
+{% block subtitulo %}{{ 'crud.create' | trans }} Planificación{% endblock %}
 {% block wrapper %}
-    <h1>Planificacion creation</h1>
 
     <div class="col-lg-6">
         <form action="{{ path('planificacion_new') }}" method="post" enctype="multipart/form-data">
@@ -10,9 +12,14 @@
         </form>
     </div>
 
-    <ul>
+    {% block wrapper_footer %} {% endblock %}
+
+{% endblock %}
+
+{% block footer %}
+    <ul class="list-inline">
         <li>
-            <a href="{{ path('planificacion_index') }}">Back to the list</a>
+            <a class="btn btn-primary" href="{{ path('planificacion_index') }}">{{ 'crud.list' | trans }}</a>
         </li>
     </ul>
 {% endblock %}
