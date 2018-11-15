@@ -1,5 +1,8 @@
 {% extends 'BackendBundle:Layout:backend.html.twig' %}
 
+{% block title %}{{ 'crud.create' | trans }} Planificación{% endblock %}
+{% block nombre %}Planificación{% endblock %}
+{% block subtitulo %}{{ 'crud.create' | trans }} Planificación{% endblock %}
 {% block wrapper %}
     <div ng-cloak>
         <wizard on-finish="finishedWizard()" on-cancel="cancelledWizard()">
