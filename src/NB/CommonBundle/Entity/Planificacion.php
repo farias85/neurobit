@@ -84,7 +84,7 @@ class Planificacion
      */
     public function getFecha()
     {
-        return $this->fecha->format('Y-m-d');
+        return $this->fecha ? $this->fecha->format('Y-m-d') : null;
     }
 
     /**
